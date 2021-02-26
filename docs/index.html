@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>CSE 412 Project: American Industrial Energy</title>
-        <link rel="stylesheet" href="https://cse412-21w.github.io/american-industrial-energy/style.62c08b9d.css">
+        <link rel="stylesheet" href="https://cse412-21w.github.io/american-industrial-energy/style.2ea50bf1.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <!-- For using d3 -->
         <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -41,7 +41,9 @@
           <a href="https://www.esrl.noaa.gov/gmd/webdata/ccgg/trends/co2/co2_annmean_mlo.csv">
             Mauna Loa Observatory/NOAA (1959-2020)</a>
           <br>
-          </p><p class="todo">TODO: Charts should be side by side and linked with brushing</p>
+        </p><p class="todo">TODO: Completely overhaul the whole CO2 intro into one or two plots,
+          showing historical and future emissions, concentrations, and temperatures under
+        four different scenarios</p>
         <p></p>
 
       <section id="co2_temp_section">
@@ -56,8 +58,7 @@
           <a href="https://www.esrl.noaa.gov/gmd/webdata/ccgg/trends/co2/co2_annmean_mlo.csv">
             Mauna Loa Observatory/NOAA (1959-2020)</a>
           <br>
-          </p><p class="todo">TODO: Add temperature chart; charts should be side by side and linked with brushing</p>
-        <p></p>
+        </p>
 
       <section id="future_co2_section">
         <h3>Future carbon dioxide emissions:</h3>
@@ -71,10 +72,7 @@
           Source: <a href="https://esgf-node.llnl.gov/search/cmip6/">
           GFDL model (IPCC, CMIP6)</a>
           <br>
-        </p><p class="todo">TODO: Charts should be side by side and linked with brushing (and probably include
-          historic values</p>
-          for reference)
-        <p></p>
+        </p>
       </section>
 
       <section id="fut_co2_conc_temp_section">
@@ -84,9 +82,7 @@
           Source: <a href="https://esgf-node.llnl.gov/search/cmip6/">
             GFDL model (IPCC, CMIP6)</a>
           <br>
-        </p><p class="todo">TODO: Charts should be side by side and linked with brushing (and probably include
-          historic values for reference)</p>
-        <p></p>
+        </p>
       </section>
 
       <section id="co2_by_fuel_section">
@@ -123,6 +119,19 @@
          </p>
       </section>
 
+      <section id="Energy Consumption Setion">
+        <h3>Connection of Usage for 8 different kinds of Energy and 4 different sectors:</h3>
+        <div id="energy_2016"></div>
+        <p> The size of the connection implies the amount of usage of a kind of energy to a category of a sector.
+        </p>
+        <img src="https://cse412-21w.github.io/american-industrial-energy/energy_consumption_2016.049b7231.png" width="800">
+        <p class="todo">TODO:
+          <br>
+          TODO: Consider the readbility of label and opacity of the connection due to the big
+          size of the data. It should be linked to county selector in map chart.
+         </p>
+      </section>
+      
        <div class="footer">
         <a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a>
         <a href="http://www.washington.edu">University of Washington</a>
@@ -130,13 +139,13 @@
 
       <!-- it is recommended to put js files before </body> -->
       <!-- or check load event fot addEventListener() if you want to put js in the <head> -->
-      <script src="https://cse412-21w.github.io/american-industrial-energy/world_co2_emissions.f3a3a775.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/hist_co2_conc.24c655d7.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/future_co2_emit.3445fa89.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/future_co2_conc.54c05ae7.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/future_temps.b494b904.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.dca154be.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/pm25_coal.878c2efa.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/world_co2_emissions.410745a2.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/hist_co2_conc.3b81ad54.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/future_co2_emit.ee2b0e1a.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/future_co2_conc.429fafab.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/future_temps.6a0d13a6.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.7e16abde.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/pm25_coal.c716670f.js"></script>
     </section></section></body>
 
 </html>
