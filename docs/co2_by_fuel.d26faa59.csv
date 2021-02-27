@@ -1,6 +1,6 @@
-Fuel,CO2
-Coal,215
-Diesel,161.3
-Gasoline,157.3
-Propane,139
-Natural gas,117
+Fuel,CO2,Tooltip
+Coal,215,"Coal contains primarily carbon and has the highest CO2 emissions per energy produced. Coal is primarily used for the generation of electricity. (Values differ by type of coal, from 205.7 for bituminous coal to 228.6 for anthracite.)"
+Diesel,161.3,"Diesel is primarily used in the transportation sector (ships, trains, trucks) and as heating oil."
+Gasoline,157.3,Gasoline is primarily used as fuel for cars.
+Propane,139,Propane (chemical formula: C3H8) is primarily used for heating.
+Natural gas,117,"Natural gas (methane; chemical formula: CH4) is used for generation of electricity, for heating, and in the transportation sector."

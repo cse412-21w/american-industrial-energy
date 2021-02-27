@@ -41,10 +41,10 @@ function drawBarVegaLite() {
   .encode(
       vl.x().fieldN('Fuel').sort('none'),
       vl.y().fieldQ('CO2'),
-      vl.tooltip(['Fuel','CO2']),
+      vl.tooltip('Tooltip'),
   )
-  .width(450)
-  .height(450)
+  .width(500)
+  .height(300)
   .render()
   .then(viewElement => {
     // render returns a promise to a DOM element containing the chart
