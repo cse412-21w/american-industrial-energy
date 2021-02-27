@@ -117,12 +117,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../static/full_co2_conc_3col.csv":[function(require,module,exports) {
-module.exports = "/full_co2_conc_3col.fdfd0992.csv";
-},{}],"co2_conc.js":[function(require,module,exports) {
+})({"../static/co2_by_sector.csv":[function(require,module,exports) {
+module.exports = "/co2_by_sector.7f9200a1.csv";
+},{}],"co2_by_sector.js":[function(require,module,exports) {
 "use strict";
 
-var _full_co2_conc_3col = _interopRequireDefault(require("../static/full_co2_conc_3col.csv"));
+var _co2_by_sector = _interopRequireDefault(require("../static/co2_by_sector.csv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -131,7 +131,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // With strict mode, you can not, for example, use undeclared variables
 
 
-var co2ConcArray = []; // used to store data later
+var co2BySectorArray = []; // used to store data later
 
 var options = {
   config: {// Vega-Lite default configuration
@@ -151,25 +151,23 @@ var options = {
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
-d3.csv(_full_co2_conc_3col.default).then(function (data) {
+d3.csv(_co2_by_sector.default).then(function (data) {
   data.forEach(function (d) {
-    co2ConcArray.push(d);
+    co2BySectorArray.push(d);
   });
-  drawLineVegaLite();
+  drawPieVegaLite();
 });
 
-function drawLineVegaLite() {
+function drawPieVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markLine({
-    color: 'firebrick'
-  }).data(co2ConcArray).encode(vl.x().fieldT('Year'), vl.y().fieldQ('CO2 (ppm)'), vl.color().fieldN('Emissions path'), vl.tooltip('Emissions path')).width(450).height(450).render().then(function (viewElement) {
+  vl.markArc().data(co2BySectorArray).encode(vl.theta().fieldN('Sector').sort('none'), vl.color().fieldQ('Contribution (%)'), vl.tooltip(['Sector', 'Contribution (%)'])).width(300).height(300).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('co2_conc').appendChild(viewElement);
+    document.getElementById('co2_by_sector').appendChild(viewElement);
   });
 }
-},{"../static/full_co2_conc_3col.csv":"../static/full_co2_conc_3col.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../static/co2_by_sector.csv":"../static/co2_by_sector.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -373,5 +371,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","co2_conc.js"], null)
-//# sourceMappingURL=/co2_conc.4ece5137.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","co2_by_sector.js"], null)
+//# sourceMappingURL=/co2_by_sector.11edd0cd.js.map

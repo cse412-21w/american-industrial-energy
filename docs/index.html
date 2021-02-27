@@ -93,13 +93,32 @@
           Coal is primarily carbon, whereas natural gas (methane, CH4) has an H:C ratio of 4.
           Replacing coal-fired power plants with gas-fired ones cuts CO2 emissions by
           almost 50 percent for the same amount of energy produced.
+          <br>Electricity generation from nuclear power plants and renewable energy
+          (hydroelectric, wind, solar, geothermal) does not cause CO2 emissions at the
+          time of electricity generation, but is usually associated with indirect emissions,
+          either from producing wind turbines or solar panels, or during the mining and
+          processing of uranium fuel.
           <br>
           Source: <a href="https://www.eia.gov/tools/faqs/faq.php?id=73&t=11">EIA</a>
           </p><p class="todo">TODO: Improve labeling, maybe use color encoding</p>
         <p></p>
       </section>
 
-      <section id="energy_consumption_map_section">
+      <section id="co2_by_sector_section">
+        <h3>Carbon dioxide emissions by sector:</h3>
+        <div id="co2_by_sector"></div>
+        Electricity generation, industry, and agriculture are responsible for about
+        60 % of total CO2 emissions in the US (values for 2018).
+        <br>
+        Therefore, we will focus on these sectors in the following.          
+        <br>
+        Source: <a href="https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions">
+          EPA</a>
+        <p class="todo">TODO: Improve labeling
+          </p>
+      </section>
+
+        <section id="energy_consumption_map_section">
         <h3> Energy consumption by county</h3>
         <div id="energy_consumption_map" style="width:1050px; margin:0 auto;">
           <iframe width="100%" height="803" frameborder="0" src="https://observablehq.com/embed/@isaack8/american-industrial-energy-handbook-data-wrangling?cells=viewof+r_color%2Cviewof+r_scale%2Ctest1"></iframe>
@@ -143,6 +162,7 @@
       <script src="https://cse412-21w.github.io/american-industrial-energy/co2_conc.2de0cc7e.js"></script>
       <script src="https://cse412-21w.github.io/american-industrial-energy/temperature.a0677183.js"></script>
       <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.d01a16c6.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.c0ab87a5.js"></script>
       <script src="https://cse412-21w.github.io/american-industrial-energy/pm25_coal.c716670f.js"></script>
     </section></section></section></body>
 
