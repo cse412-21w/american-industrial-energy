@@ -1,4 +1,4 @@
-import futCo2ConcData from '../static/future_co2_conc.csv'    // import dataset
+import co2ConcData from '../static/full_co2_conc_3col.csv'    // import dataset
 "use strict";     // the code should be executed in "strict mode".
                   // With strict mode, you can not, for example, use undeclared variables
 
@@ -25,7 +25,7 @@ const options = {
 vl.register(vega, vegaLite, options);
 
 // Again, We use d3.csv() to process data
-d3.csv(futCo2ConcData).then(function(data) {
+d3.csv(co2ConcData).then(function(data) {
   data.forEach(function(d){
     co2ConcArray.push(d);
   })
@@ -40,8 +40,9 @@ function drawLineVegaLite() {
   .data(co2ConcArray)
   .encode(
       vl.x().fieldT('Year'),
-      vl.y().fieldQ('CO2 (SSP 585)'),
-      vl.tooltip(['Year','CO2 (SSP 585)']),
+      vl.y().fieldQ('CO2 (ppm)'),
+      vl.color().fieldN('Emissions path'),
+      vl.tooltip('Emissions path')
   )
   .width(450)
   .height(450)
@@ -49,7 +50,7 @@ function drawLineVegaLite() {
   .then(viewElement => {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('future_co2').appendChild(viewElement);
+    document.getElementById('co2_conc').appendChild(viewElement);
   });
 }
   
