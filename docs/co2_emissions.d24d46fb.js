@@ -117,12 +117,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../static/world_co2_ssp_cmip6.csv":[function(require,module,exports) {
-module.exports = "/world_co2_ssp_cmip6.1d7d0744.csv";
-},{}],"future_co2_emit.js":[function(require,module,exports) {
+})({"../static/full_co2_emit_3col.csv":[function(require,module,exports) {
+module.exports = "/full_co2_emit_3col.d6903079.csv";
+},{}],"co2_emissions.js":[function(require,module,exports) {
 "use strict";
 
-var _world_co2_ssp_cmip = _interopRequireDefault(require("../static/world_co2_ssp_cmip6.csv"));
+var _full_co2_emit_3col = _interopRequireDefault(require("../static/full_co2_emit_3col.csv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -131,7 +131,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // With strict mode, you can not, for example, use undeclared variables
 
 
-var co2EmitArray = []; // used to store data later
+var co2EmissionsArray = []; // used to store data later
 
 var options = {
   config: {// Vega-Lite default configuration
@@ -151,25 +151,23 @@ var options = {
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
-d3.csv(_world_co2_ssp_cmip.default).then(function (data) {
+d3.csv(_full_co2_emit_3col.default).then(function (data) {
   data.forEach(function (d) {
-    co2EmitArray.push(d);
+    co2EmissionsArray.push(d);
   });
-  drawLineVegaLite();
+  drawLinesVegaLite();
 });
 
-function drawLineVegaLite() {
+function drawLinesVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markLine({
-    color: 'green'
-  }).data(co2EmitArray).encode(vl.x().fieldT('Year'), vl.y().fieldQ('SSP5-85'), vl.tooltip(['Year', 'SSP5-85'])).width(450).height(450).render().then(function (viewElement) {
+  vl.markLine().data(co2EmissionsArray).encode(vl.x().fieldT('Year'), vl.y().fieldQ('CO2 (Pg/yr)'), vl.color().fieldN('Emissions path'), vl.tooltip('Emissions path')).width(450).height(450).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('future_co2').appendChild(viewElement);
+    document.getElementById('co2_emissions').appendChild(viewElement);
   });
 }
-},{"../static/world_co2_ssp_cmip6.csv":"../static/world_co2_ssp_cmip6.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../static/full_co2_emit_3col.csv":"../static/full_co2_emit_3col.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -197,7 +195,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49909" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50016" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -373,5 +371,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","future_co2_emit.js"], null)
-//# sourceMappingURL=/future_co2_emit.4a5ba184.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","co2_emissions.js"], null)
+//# sourceMappingURL=/co2_emissions.d24d46fb.js.map

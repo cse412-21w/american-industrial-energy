@@ -1,8 +1,8 @@
-import futureCo2EmitData from '../static/world_co2_ssp_cmip6.csv'    // import dataset
+import co2EmissionsData from '../static/full_co2_emit_3col.csv'    // import dataset
 "use strict";     // the code should be executed in "strict mode".
                   // With strict mode, you can not, for example, use undeclared variables
 
-var co2EmitArray = [];   // used to store data later
+var co2EmissionsArray = [];   // used to store data later
 
 const options = {
   config: {
@@ -25,23 +25,24 @@ const options = {
 vl.register(vega, vegaLite, options);
 
 // Again, We use d3.csv() to process data
-d3.csv(futureCo2EmitData).then(function(data) {
+d3.csv(co2EmissionsData).then(function(data) {
   data.forEach(function(d){
-    co2EmitArray.push(d);
+    co2EmissionsArray.push(d);
   })
-  drawLineVegaLite();
+  drawLinesVegaLite();
 });
 
 
-function drawLineVegaLite() {
+function drawLinesVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markLine({color:'green'})
-  .data(co2EmitArray)
+  vl.markLine()
+  .data(co2EmissionsArray)
   .encode(
       vl.x().fieldT('Year'),
-      vl.y().fieldQ('SSP5-85'),
-      vl.tooltip(['Year','SSP5-85']),
+      vl.y().fieldQ('CO2 (Pg/yr)'),
+      vl.color().fieldN('Emissions path'),
+      vl.tooltip('Emissions path'),
   )
   .width(450)
   .height(450)
@@ -49,7 +50,7 @@ function drawLineVegaLite() {
   .then(viewElement => {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('future_co2').appendChild(viewElement);
+    document.getElementById('co2_emissions').appendChild(viewElement);
   });
 }
   
