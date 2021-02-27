@@ -41,11 +41,11 @@
           <a href="https://www.esrl.noaa.gov/gmd/webdata/ccgg/trends/co2/co2_annmean_mlo.csv">
             Mauna Loa Observatory/NOAA (1959-2020)</a>
           <br>
+        </p>
         <p class="todo">TODO: Completely overhaul the whole CO2 intro into one or two plots,
           showing historical and future emissions, concentrations, and temperatures under
           four different scenarios; and link the different emission paths across plots.
           <br>This plot: Sort labels in legend, bigger fonts, different colors
-        </p>
         </p>
 
       <section id = "co2_conc_section">
@@ -63,37 +63,25 @@
           <a href="https://www.esrl.noaa.gov/gmd/webdata/ccgg/trends/co2/co2_annmean_mlo.csv">
             Mauna Loa Observatory/NOAA (1959-2020)</a>
           <br>
+        </p>
         <p class="todo">TODO: Completely overhaul the whole CO2 intro.
           <br>This plot: Sort labels in legend, bigger fonts, different colors
         </p>
-        </p>
 
-      <section id = "co2_temp_section">
+      <section id = "temp_section">
         <h3>Increased carbon dioxide in the atmosphere has caused global warming:</h3>
-        <div id="co2_temp"></div>
+        <div id="temp"></div>
         <p>Carbon dioxide is the primary greenhouse gas. Its increasing concentration has led to
           an increase in temperatures across the globe.
           <br>
+          Future temperatures will depend on the emissions pathway.
           <br>
-          This has led to a steady rise in the atmospheric concentration of CO2 from about 278 ppm
-          before the Industrial Revolution to about 414 ppm in 2020.
-          Source: <a href="https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv">
-            Our World in Data</a>,
-          <br>
-          <a href="https://www.esrl.noaa.gov/gmd/webdata/ccgg/trends/co2/co2_annmean_mlo.csv">
-            Mauna Loa Observatory/NOAA (1959-2020)</a>
-          <br>
+          Shown are global average temperatures in degrees Celsius
+          relative to their average between 1986 and 2005.
         </p>
-
-      <section id = "fut_co2_conc_temp_section">
-        <h3>Future atmospheric carbon dioxide concentrations will determine future global warming:</h3>
-        <div id="fut_co2_conc_temp"></div>
-        <p>
-          Source: <a href="https://esgf-node.llnl.gov/search/cmip6/">
-            GFDL model (IPCC, CMIP6)</a>
-          <br>
+        <p class="todo">TODO: Completely overhaul the whole CO2 intro.
+          <br>This plot: Sort labels in legend, bigger fonts, different colors
         </p>
-      </section>
 
       <section id = "co2_by_fuel_section">
         <h3>Carbon dioxide emissions by fuel type:</h3>
@@ -105,7 +93,7 @@
           Coal is primarily carbon, whereas natural gas (methane, CH4) has an H:C ratio of 4.
           <br>
           Source: <a href="https://www.eia.gov/tools/faqs/faq.php?id=73&t=11">EIA</a>
-          <p class="todo">TODO: More descriptive tooltips</p>
+          <p class="todo">TODO: More descriptive tooltips, maybe use color encoding</p>
         </p>
       </section>
 
@@ -151,7 +139,7 @@
       <!-- or check load event fot addEventListener() if you want to put js in the <head> -->
       <script src="co2_emissions.js"></script>
       <script src="co2_conc.js"></script>
-      <script src="future_temps.js"></script>
+      <script src="temperature.js"></script>
       <script src="co2_by_fuel.js"></script>
       <script src="pm25_coal.js"></script>
     </body>

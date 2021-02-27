@@ -1,8 +1,8 @@
-import futTempData from '../static/future_temp.csv'    // import dataset
+import tempData from '../static/temperature.csv'    // import dataset
 "use strict";     // the code should be executed in "strict mode".
                   // With strict mode, you can not, for example, use undeclared variables
 
-var co2ConcArray = [];   // used to store data later
+var tempArray = [];   // used to store data later
 
 const options = {
   config: {
@@ -25,9 +25,9 @@ const options = {
 vl.register(vega, vegaLite, options);
 
 // Again, We use d3.csv() to process data
-d3.csv(futTempData).then(function(data) {
+d3.csv(tempData).then(function(data) {
   data.forEach(function(d){
-    co2ConcArray.push(d);
+    tempArray.push(d);
   })
   drawLineVegaLite();
 });
@@ -36,12 +36,13 @@ d3.csv(futTempData).then(function(data) {
 function drawLineVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markLine({color:'firebrick'})
-  .data(co2ConcArray)
+  vl.markLine()
+  .data(tempArray)
   .encode(
       vl.x().fieldT('Year'),
-      vl.y().fieldQ('Temperature (SSP 585)'),
-      vl.tooltip(['Year','Temperature (SSP 585)']),
+      vl.y().fieldQ('Temperature'),
+      vl.color().fieldN('Emissions path'),
+      vl.tooltip('Emissions path')
   )
   .width(450)
   .height(450)
@@ -49,7 +50,7 @@ function drawLineVegaLite() {
   .then(viewElement => {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('fut_co2_conc_temp').appendChild(viewElement);
+    document.getElementById('temp').appendChild(viewElement);
   });
 }
   

@@ -117,12 +117,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../static/co2_by_fuel.csv":[function(require,module,exports) {
-module.exports = "/co2_by_fuel.d26faa59.csv";
-},{}],"co2_by_fuel.js":[function(require,module,exports) {
+})({"../static/temperature.csv":[function(require,module,exports) {
+module.exports = "/temperature.7107287e.csv";
+},{}],"temperature.js":[function(require,module,exports) {
 "use strict";
 
-var _co2_by_fuel = _interopRequireDefault(require("../static/co2_by_fuel.csv"));
+var _temperature = _interopRequireDefault(require("../static/temperature.csv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -131,7 +131,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // With strict mode, you can not, for example, use undeclared variables
 
 
-var co2ByFuelArray = []; // used to store data later
+var tempArray = []; // used to store data later
 
 var options = {
   config: {// Vega-Lite default configuration
@@ -151,26 +151,23 @@ var options = {
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
-d3.csv(_co2_by_fuel.default).then(function (data) {
+d3.csv(_temperature.default).then(function (data) {
   data.forEach(function (d) {
-    co2ByFuelArray.push(d);
+    tempArray.push(d);
   });
-  drawBarVegaLite();
+  drawLineVegaLite();
 });
 
-function drawBarVegaLite() {
+function drawLineVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markBar({
-    filled: true,
-    color: 'black'
-  }).data(co2ByFuelArray).encode(vl.x().fieldN('Fuel').sort('none'), vl.y().fieldQ('CO2'), vl.tooltip(['Fuel', 'CO2'])).width(450).height(450).render().then(function (viewElement) {
+  vl.markLine().data(tempArray).encode(vl.x().fieldT('Year'), vl.y().fieldQ('Temperature'), vl.color().fieldN('Emissions path'), vl.tooltip('Emissions path')).width(450).height(450).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('co2_by_fuel').appendChild(viewElement);
+    document.getElementById('temp').appendChild(viewElement);
   });
 }
-},{"../static/co2_by_fuel.csv":"../static/co2_by_fuel.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../static/temperature.csv":"../static/temperature.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -374,5 +371,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","co2_by_fuel.js"], null)
-//# sourceMappingURL=/co2_by_fuel.d4dfcbab.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","temperature.js"], null)
+//# sourceMappingURL=/temperature.f337faeb.js.map
