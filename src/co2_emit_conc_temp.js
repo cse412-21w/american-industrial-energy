@@ -41,7 +41,7 @@ function drawLinesVegaLite() {
   .encode(
       vl.x().fieldT('Year'),
       vl.y().fieldQ(vl.repeat('column')),
-      vl.color().fieldN('Emissions path'),
+      vl.color().fieldN('Emissions path').sort('none'),
       vl.tooltip('Emissions path'),
   )
   .width(300)
