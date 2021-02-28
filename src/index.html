@@ -25,6 +25,17 @@
         <!-- </a> -->
       </section>
 
+      <section id = "co2_tmp_section">
+        <h3>Carbon dioxide emissions, concentrations, and temperature</h3>
+        Preliminary test plot (to replace the following three):
+        <div id="co2_temp"></div>
+        <p class="todo">TODO: This is closer to what the final charts should be like.
+          <br>
+          Missing values should be ignored instead of being assumed to be 0.
+          <br>
+          Plots need to be linked (by selection of emissions path).
+      </section>
+
       <section id = "co2_emissions_section">
         <h3>Global carbon dioxide emissions since 1750 and in the future:</h3>
         <div id="co2_emissions"></div>
@@ -47,6 +58,7 @@
           four different scenarios; and link the different emission paths across plots.
           <br>This plot: Sort labels in legend, bigger fonts, different colors
         </p>
+      </section>
 
       <section id = "co2_conc_section">
         <h3>Atmospheric carbon dioxide concentrations since 1750 and in the future:</h3>
@@ -67,6 +79,7 @@
         <p class="todo">TODO: Completely overhaul the whole CO2 intro.
           <br>This plot: Sort labels in legend, bigger fonts, different colors
         </p>
+      </section>
 
       <section id = "temp_section">
         <h3>Increased carbon dioxide in the atmosphere has caused global warming:</h3>
@@ -82,6 +95,7 @@
         <p class="todo">TODO: Completely overhaul the whole CO2 intro.
           <br>This plot: Sort labels in legend, bigger fonts, different colors
         </p>
+      </section>
 
       <section id = "co2_by_fuel_section">
         <h3>Carbon dioxide emissions by fuel type:</h3>
@@ -158,6 +172,7 @@
 
       <!-- it is recommended to put js files before </body> -->
       <!-- or check load event fot addEventListener() if you want to put js in the <head> -->
+      <script src="co2_emit_conc_temp.js"></script>
       <script src="co2_emissions.js"></script>
       <script src="co2_conc.js"></script>
       <script src="temperature.js"></script>
