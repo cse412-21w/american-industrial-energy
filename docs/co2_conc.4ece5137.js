@@ -117,21 +117,28 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../static/full_co2_conc_3col.csv":[function(require,module,exports) {
-module.exports = "/full_co2_conc_3col.fdfd0992.csv";
+})({"../static/old_co2_conc.csv":[function(require,module,exports) {
+module.exports = "/old_co2_conc.e6804643.csv";
+},{}],"../static/new_co2_conc.csv":[function(require,module,exports) {
+module.exports = "/new_co2_conc.8136eba7.csv";
 },{}],"co2_conc.js":[function(require,module,exports) {
 "use strict";
 
-var _full_co2_conc_3col = _interopRequireDefault(require("../static/full_co2_conc_3col.csv"));
+var _old_co2_conc = _interopRequireDefault(require("../static/old_co2_conc.csv"));
+
+var _new_co2_conc = _interopRequireDefault(require("../static/new_co2_conc.csv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import dataset
 // import dataset
 "use strict"; // the code should be executed in "strict mode".
 // With strict mode, you can not, for example, use undeclared variables
 
 
-var co2ConcArray = []; // used to store data later
+var old2ConcArray = []; // used to store data later
+
+var new2ConcArray = []; // used to store data later
 
 var options = {
   config: {// Vega-Lite default configuration
@@ -151,9 +158,14 @@ var options = {
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
-d3.csv(_full_co2_conc_3col.default).then(function (data) {
+d3.csv(_new_co2_conc.default).then(function (data) {
   data.forEach(function (d) {
-    co2ConcArray.push(d);
+    newCO2ConcArray.push(d);
+  });
+});
+d3.csv(_old_co2_conc.default).then(function (data) {
+  data.forEach(function (d) {
+    oldCO2ConcArray.push(d);
   });
   drawLineVegaLite();
 });
@@ -161,15 +173,13 @@ d3.csv(_full_co2_conc_3col.default).then(function (data) {
 function drawLineVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markLine({
-    color: 'firebrick'
-  }).data(co2ConcArray).encode(vl.x().fieldT('Year'), vl.y().fieldQ('CO2 (ppm)'), vl.color().fieldN('Emissions path'), vl.tooltip('Emissions path')).width(450).height(450).render().then(function (viewElement) {
+  vl.markLine().data(co2ConcArray).encode(vl.x().fieldT('Year'), vl.y().fieldQ('CO2 (ppm)'), vl.color().fieldN('Emissions path'), vl.tooltip('Emissions path')).width(450).height(450).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
     document.getElementById('co2_conc').appendChild(viewElement);
   });
 }
-},{"../static/full_co2_conc_3col.csv":"../static/full_co2_conc_3col.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../static/old_co2_conc.csv":"../static/old_co2_conc.csv","../static/new_co2_conc.csv":"../static/new_co2_conc.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -197,7 +207,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51436" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63792" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

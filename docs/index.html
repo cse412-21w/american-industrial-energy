@@ -27,21 +27,8 @@
 
       <section id="co2_tmp_section">
         <h3>Carbon dioxide emissions, concentrations, and temperature</h3>
-        Preliminary test plot (to replace the following three):
         <div id="co2_temp"></div>
-        <p class="todo">TODO: This is closer to what the final charts should be like.
-          <br>
-          Missing values should be ignored instead of being assumed to be 0.
-          <br>
-          Plots need to be linked (by selection of emissions path).
-          <br>
-          Colors should be different (e.g., black for historical,
-          blue to red for emissions paths)
-      </p></section>
 
-      <section id="co2_emissions_section">
-        <h3>Global carbon dioxide emissions since 1750 and in the future:</h3>
-        <div id="co2_emissions"></div>
         <p>Since the beginning of the Industrial Revolution in the mid-18th century, the
           consumption of fossil fuels for the production of energy has steadily and nearly exponentially risen,
           and along with it the emissions of carbon dioxide.
@@ -49,45 +36,13 @@
           Future emissions will depend on international treaties, national policies,
           and individual behavior.
           <br>
-          Source: <a href="https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv">
-            Our World in Data</a>,
-          <br>
-          <a href="https://www.esrl.noaa.gov/gmd/webdata/ccgg/trends/co2/co2_annmean_mlo.csv">
-            Mauna Loa Observatory/NOAA (1959-2020)</a>
-          <br>
-        </p>
-        <p class="todo">TODO: Completely overhaul the whole CO2 intro into one or two plots,
-          showing historical and future emissions, concentrations, and temperatures under
-          four different scenarios; and link the different emission paths across plots.
-          <br>This plot: Sort labels in legend, bigger fonts, different colors
-        </p>
-      </section>
-
-      <section id="co2_conc_section">
-        <h3>Atmospheric carbon dioxide concentrations since 1750 and in the future:</h3>
-        <div id="co2_conc"></div>
-        <p>Anthropogenic emissions of carbon dioxide have
+        </p><p>Anthropogenic emissions of carbon dioxide have
           led to a steady rise in the atmospheric concentration of CO2 from about 278 ppm
           before the Industrial Revolution to about 414 ppm in 2020.
           <br>
           Future concentrations depend on the emissions pathway chosen by humankind.
           <br>
-          Source: <a href="https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv">
-            Our World in Data</a>,
-          <br>
-          <a href="https://www.esrl.noaa.gov/gmd/webdata/ccgg/trends/co2/co2_annmean_mlo.csv">
-            Mauna Loa Observatory/NOAA (1959-2020)</a>
-          <br>
-        </p>
-        <p class="todo">TODO: Completely overhaul the whole CO2 intro.
-          <br>This plot: Sort labels in legend, bigger fonts, different colors
-        </p>
-      </section>
-
-      <section id="temp_section">
-        <h3>Increased carbon dioxide in the atmosphere has caused global warming:</h3>
-        <div id="temp"></div>
-        <p>Carbon dioxide is the primary greenhouse gas. Its increasing concentration has led to
+        </p><p>Carbon dioxide is the primary greenhouse gas. Its increasing concentration has led to
           an increase in temperatures across the globe.
           <br>
           Future temperatures will depend on the emissions pathway.
@@ -95,10 +50,23 @@
           Shown are global average temperatures in degrees Celsius
           relative to their average between 1986 and 2005.
         </p>
-        <p class="todo">TODO: Completely overhaul the whole CO2 intro.
-          <br>This plot: Sort labels in legend, bigger fonts, different colors
-        </p>
-      </section>
+          Source: <a href="https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv">
+            Our World in Data</a>,
+          <br>
+          <a href="https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv">
+            Our World in Data</a>,
+          <br>
+          <a href="https://www.esrl.noaa.gov/gmd/webdata/ccgg/trends/co2/co2_annmean_mlo.csv">
+            Mauna Loa Observatory/NOAA (1959-2020)</a>
+
+         <p class="todo">TODO:
+          <br>
+          Plots need to be linked (by selection of emissions path).
+          <br>
+          Colors should be different (e.g., black for historical,
+          blue to red for emissions paths)
+          <br> Correct sources, put into graphs?
+      </p></section>
 
       <section id="co2_by_fuel_section">
         <h3>Carbon dioxide emissions by fuel type:</h3>
@@ -117,14 +85,14 @@
           processing of uranium fuel.
           <br>
           Source: <a href="https://www.eia.gov/tools/faqs/faq.php?id=73&t=11">EIA</a>
-          </p><p class="todo">TODO: Improve labeling, maybe use color encoding</p>
+          </p><p class="todo">TODO: Improve labeling (larger font sizes, horizontal on x-axis), put source into graph</p>
         <p></p>
       </section>
 
       <section id="co2_by_sector_section">
         <h3>Carbon dioxide emissions by sector:</h3>
         <div id="co2_by_sector"></div>
-        Electricity generation, industry, and agriculture are responsible for about
+        Electricity generation, industry, and agriculture combined are responsible for about
         60 % of total CO2 emissions in the US (values for 2018).
         <br>
         Therefore, we will focus on these sectors in the following.          
@@ -144,7 +112,8 @@
         <p class="todo">TODO: </p>
       </section>
 
-      <section id="pm25_section">
+        <!--
+      <section id = "pm25_section">
         <h3>Coal Usage and PM 2.5:</h3>
         <div id="pm25"></div>
         <p>Coal usage can be linked to PM 2.5 in the air.
@@ -156,7 +125,8 @@
           Most likely we will completey eliminate this section.
          </p>
       </section>
-
+      -->
+        
       <section id="Energy Consumption Setion">
         <h3>Connection of Usage for 8 different kinds of Energy and 4 different sectors:</h3>
         <div id="energy_2016"></div>
@@ -177,12 +147,9 @@
 
       <!-- it is recommended to put js files before </body> -->
       <!-- or check load event fot addEventListener() if you want to put js in the <head> -->
-      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.2ce6abe6.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_emissions.ec0432d8.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_conc.2de0cc7e.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/temperature.a0677183.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.d01a16c6.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.c0ab87a5.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.aea086d1.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.ce650f29.js"></script>
+      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.2863ff0a.js"></script>
       <script src="https://cse412-21w.github.io/american-industrial-energy/pm25_coal.c716670f.js"></script>
     </body>
 
