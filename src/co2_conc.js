@@ -1,8 +1,10 @@
-import co2ConcData from '../static/full_co2_conc_3col.csv'    // import dataset
+import oldCO2ConcData from '../static/old_co2_conc.csv'    // import dataset
+import newCO2ConcData from '../static/new_co2_conc.csv'    // import dataset
 "use strict";     // the code should be executed in "strict mode".
                   // With strict mode, you can not, for example, use undeclared variables
 
-var co2ConcArray = [];   // used to store data later
+var old2ConcArray = [];   // used to store data later
+var new2ConcArray = [];   // used to store data later
 
 const options = {
   config: {
@@ -25,9 +27,15 @@ const options = {
 vl.register(vega, vegaLite, options);
 
 // Again, We use d3.csv() to process data
-d3.csv(co2ConcData).then(function(data) {
+d3.csv(newCO2ConcData).then(function(data) {
   data.forEach(function(d){
-    co2ConcArray.push(d);
+    newCO2ConcArray.push(d);
+  })
+});
+
+d3.csv(oldCO2ConcData).then(function(data) {
+  data.forEach(function(d){
+    oldCO2ConcArray.push(d);
   })
   drawLineVegaLite();
 });
@@ -36,7 +44,7 @@ d3.csv(co2ConcData).then(function(data) {
 function drawLineVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markLine({color:'firebrick'})
+  vl.markLine()
   .data(co2ConcArray)
   .encode(
       vl.x().fieldT('Year'),

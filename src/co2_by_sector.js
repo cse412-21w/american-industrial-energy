@@ -39,8 +39,8 @@ function drawPieVegaLite() {
   vl.markArc()
   .data(co2BySectorArray)
   .encode(
-      vl.theta().fieldN('Sector').sort('none'),
-      vl.color().fieldQ('Contribution (%)'),
+      vl.theta().fieldQ('Contribution (%)').sort('none'),
+      vl.color().fieldQ('Contribution (%)').sort('none'),
       vl.tooltip(['Sector','Contribution (%)']),
   )
   .width(300)
