@@ -1,72 +1,99 @@
-<!DOCTYPE HTML>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>CSE 412 Project: American Industrial Energy</title>
-        <link rel="stylesheet" href="https://cse412-21w.github.io/american-industrial-energy/style.2ea50bf1.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <!-- For using d3 -->
-        <script src="https://d3js.org/d3.v6.min.js"></script>
-        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-        <!-- For using vega-lite -->
-        <script src="https://cdn.jsdelivr.net/npm/vega"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-        <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap" rel="stylesheet">
-    </head>
-
-    <body>
-      <section class="title">
-        <!-- <a href="/"> -->
-          CSE 412 Final Project: American Industrial Energy
-        <!-- </a> -->
-      </section>
-
-      <section id="co2_tmp_section">
-        <h3>Carbon dioxide emissions, concentrations, and temperature</h3>
-        <div id="co2_temp"></div>
-
-        <p>Since the beginning of the Industrial Revolution in the mid-18th century, the
-          consumption of fossil fuels for the production of energy has steadily and nearly exponentially risen,
-          and along with it the emissions of carbon dioxide.
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>CSE 412 Project: American Industrial Energy</title>
+  <link rel="stylesheet" href="https://cse412-21w.github.io/american-industrial-energy/style.d41559a7.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!-- For using d3 -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <!-- For using vega-lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>CSE 412 Project: American Industrial Energy</h1>
+<div class="container">
+  <div class="mySlides">
+    <!-- <div class="numbertext">1 / 7</div> -->
+    <div class="center">
+      <div class="text-block">
+        <h3> Intro paragraph </h3>
+        <h4> By: Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth</h4>
+        <p> Text here about the Project
           <br>
-          Future emissions will depend on international treaties, national policies,
-          and individual behavior.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           <br>
-        </p><p>Anthropogenic emissions of carbon dioxide have
-          led to a steady rise in the atmospheric concentration of CO2 from about 278 ppm
-          before the Industrial Revolution to about 414 ppm in 2020.
-          <br>
-          Future concentrations depend on the emissions pathway chosen by humankind.
-          <br>
-        </p><p>Carbon dioxide is the primary greenhouse gas. Its increasing concentration has led to
-          an increase in temperatures across the globe.
-          <br>
-          Future temperatures will depend on the emissions pathway.
-          <br>
-          Shown are global average temperatures in degrees Celsius
-          relative to their average between 1986 and 2005.
-          <br>
-          The goal of the Paris Agreement (2015) is to limit global warming to well below 2,
-          preferably to 1.5 degrees Celsius, compared to pre-industrial levels.
-          <br>Only the low and medium low emission paths will meet this goal.
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p><p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p><p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        Source: <a href="http://www.climatechange2013.org/images/report/WG1AR5_AIISM_Datafiles.xlsx">
+      </div>
+    </div>
+  </div>
+    
+  <div class="mySlides">
+    <!-- <div class="numbertext">2 / 7</div> -->
+    <div class="graph">
+      <div id="co2_temp"></div>
+    </div>
+    <div class="center">
+      <div class="text-block">
+          <h3>Carbon dioxide emissions, concentrations, and temperature</h3>
+          <p>Since the beginning of the Industrial Revolution in the mid-18th century, the
+            consumption of fossil fuels for the production of energy has steadily and nearly exponentially risen,
+            and along with it the emissions of carbon dioxide.
+            <br>
+            Future emissions will depend on international treaties, national policies,
+            and individual behavior.
+            <br>
+          </p><p>Anthropogenic emissions of carbon dioxide have
+            led to a steady rise in the atmospheric concentration of CO2 from about 278 ppm
+            before the Industrial Revolution to about 414 ppm in 2020.
+            <br>
+            Future concentrations depend on the emissions pathway chosen by humankind.
+            <br>
+          </p><p>Carbon dioxide is the primary greenhouse gas. Its increasing concentration has led to
+            an increase in temperatures across the globe.
+            <br>
+            Future temperatures will depend on the emissions pathway.
+            <br>
+            Shown are global average temperatures in degrees Celsius
+            relative to their average between 1986 and 2005.
+            <br>
+            The goal of the Paris Agreement (2015) is to limit global warming to well below 2,
+            preferably to 1.5 degrees Celsius, compared to pre-industrial levels.
+            <br>Only the low and medium low emission paths will meet this goal.
+          </p>
+          Source: <a href="http://www.climatechange2013.org/images/report/WG1AR5_AIISM_Datafiles.xlsx">
           IPCC</a>
-          
-         <p class="todo">TODO:
-          <br>
-          Colors should be different (e.g., black for historical,
-          blue to red for emissions paths)
-          <br> put source into graphs?
-      </p></section>
-
-      <section id="co2_by_fuel_section">
-        <h3>Carbon dioxide emissions by fuel type:</h3>
-        <div id="co2_by_fuel"></div>
+            
+           <p class="todo">TODO:
+            <br>
+            Colors should be different (e.g., black for historical,
+            blue to red for emissions paths)
+            <br> put source into graphs?
+        </p></div>
+    </div> 
+  </div>
+  <div class="mySlides">
+    <!-- <div class="numbertext">3 / 7</div> -->
+    <div class="graph">
+      <div id="co2_by_fuel"></div>
+    </div>
+    <div class="center">
+      <div class="text-block">
+        <h3>Carbon dioxide emissions by fuel type</h3>
         <p>The amount of CO2 per energy produced depends on the type of fuel. It is given
           here in units of pounds of CO2 emitted per million British Thermal Units (BTU).
           <br>
@@ -83,11 +110,17 @@
           Source: <a href="https://www.eia.gov/tools/faqs/faq.php?id=73&t=11">EIA</a>
           </p><p class="todo">TODO: Improve labeling (larger font sizes, horizontal on x-axis), put source into graph</p>
         <p></p>
-      </section>
-
-      <section id="co2_by_sector_section">
-        <h3>Carbon dioxide emissions by sector:</h3>
-        <div id="co2_by_sector"></div>
+      </div>
+    </div> 
+  </div>
+  <div class="mySlides">
+    <!-- <div class="numbertext">4 / 7</div> -->
+    <div class="graph">
+      <div id="co2_by_sector"></div>
+    </div>
+    <div class="center">
+      <div class="text-block">
+        <h3>Carbon dioxide emissions by sector</h3>
         Electricity generation, industry, and agriculture combined are responsible for about
         60 % of total CO2 emissions in the US (values for 2018).
         <br>
@@ -97,56 +130,140 @@
           EPA</a>
         <p class="todo">TODO: Improve labeling
           </p>
-      </section>
-
-        <section id="energy_consumption_map_section">
-        <h3> Energy consumption by county</h3>
-        <div id="energy_consumption_map" style="width:1050px; margin:0 auto;">
-          <iframe width="100%" height="803" frameborder="0" src="https://observablehq.com/embed/@isaack8/american-industrial-energy-handbook-data-wrangling?cells=viewof+r_color%2Cviewof+r_scale%2Ctest1"></iframe>
+      </div>
+    </div>
+  </div>
+    
+  <div class="mySlides">
+    <!-- <div class="numbertext">5 / 7</div> -->
+    
+    <div class="center">
+      <div id="energy_consumption_map" style="width:1050px; margin:0 auto;">
+        <iframe width="100%" height="803" frameborder="0" src="https://observablehq.com/embed/@isaack8/american-industrial-energy-handbook-data-wrangling?cells=viewof+r_color%2Cviewof+r_scale%2Ctest1"></iframe>
+        <div class="text-block">
+          <h3> Energy consumption by county</h3>
           <p> The amount of energy in mmBTU's each county consumed in 2016. A diverging-log scale is used to highlight the lowest and highest electricity consumers</p>
+          <p class="todo">TODO: </p>
         </div>
-        <p class="todo">TODO: </p>
-      </section>
-
-        <!--
-      <section id = "pm25_section">
-        <h3>Coal Usage and PM 2.5:</h3>
-        <div id="pm25"></div>
-        <p>Coal usage can be linked to PM 2.5 in the air.
-        </p>
-        <p class="todo">TODO:
-          <br>
-          Determine if it's worth transforming the data or if we want to use other energy sources or pollutants.
-          <br>
-          Most likely we will completey eliminate this section.
-         </p>
-      </section>
-      -->
-        
-      <section id="Energy Consumption Setion">
-        <h3>Connection of Usage for 8 different kinds of Energy and 4 different sectors:</h3>
-        <div id="energy_2016"></div>
+      </div>
+    </div>
+  </div>
+  <div class="mySlides">
+    <!-- <div class="numbertext">6 / 7</div> -->
+    <div class="graph">
+      <img src="https://cse412-21w.github.io/american-industrial-energy/energy_consumption_2016.049b7231.png" width="600">
+    </div>
+    <div class="center">
+      
+      <div class="text-block">
+        <h3>Connection of Usage for 8 different kinds of Energy and 4 different sectors</h3>
         <p> The size of the connection implies the amount of usage of a kind of energy to a category of a sector.
         </p>
-        <img src="https://cse412-21w.github.io/american-industrial-energy/energy_consumption_2016.049b7231.png" width="800">
-        <p class="todo">TODO:
-          <br>
-          TODO: Consider the readability of label and opacity of the connection due to the big
-          size of the data. It should be linked to county selector in map chart.
-         </p>
-      </section>
-      
-       <div class="footer">
-        <a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a>
-        <a href="http://www.washington.edu">University of Washington</a>
+          <p class="todo">TODO:
+            <br>
+            Consider the readbility of label and opacity of the connection due to the big
+            size of the data. It should be linked to county selector in map chart.
+           </p>
       </div>
+    </div>
+  </div>
+  <div class="mySlides">
+    <!-- <div class="numbertext">7 / 7</div> -->
+    <div class="center">
+      <div class="text-block">
+        <h3> extra slide</h3>
+         <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          <br>
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p><p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p><p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/earth.43432d77.jpeg" style="width:100%" onclick="currentSlide(1)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/wind.f516c1ed.jpeg" style="width:100%" onclick="currentSlide(2)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/coal.b9b2b3f1.jpeg" style="width:100%" onclick="currentSlide(3)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/hydro.cfd8529c.jpeg" style="width:100%" onclick="currentSlide(4)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/nuclear.71069dea.jpeg" style="width:100%" onclick="currentSlide(5)">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/oil.9137460d.jpeg" style="width:100%" onclick="currentSlide(6)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/earth.43432d77.jpeg" style="width:100%" onclick="currentSlide(7)">
+    </div>
+  </div>
+</div>
+<script>var slideIndex = 1;
+showSlides(slideIndex);
 
-      <!-- it is recommended to put js files before </body> -->
-      <!-- or check load event fot addEventListener() if you want to put js in the <head> -->
-      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.475bf0fa.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.ce650f29.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.2863ff0a.js"></script>
-      <script src="https://cse412-21w.github.io/american-industrial-energy/pm25_coal.c716670f.js"></script>
-    </body>
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+  captionText.innerHTML = dots[slideIndex - 1].alt;
+}</script>
+<div class="footer">
+  <a href="http://www.washington.edu">University of Washington</a>
+  <br>
+  <a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a>
+</div>
+<!-- it is recommended to put js files before </body> -->
+<!-- or check load event fot addEventListener() if you want to put js in the <head> -->
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.94eab6c1.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.26f15111.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.77d83f28.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/pm25_coal.878c2efa.js"></script>
+    
+</body>
 </html>
