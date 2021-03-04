@@ -161,7 +161,8 @@ d3.csv(_co2_emit_conc_temp.default).then(function (data) {
 function drawLinesVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markLine().data(co2TempArray).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.tooltip('Emissions path')).width(300).height(300).repeat({
+  var selection = vl.selectSingle();
+  vl.markLine().data(co2TempArray).select(selection).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.opacity().if(selection).value(0.3), vl.tooltip('Emissions path')).width(300).height(300).repeat({
     column: ['CO2 emissions (Pg/yr)', 'CO2 concentrations (ppm)', 'Temperature']
   }).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
@@ -197,7 +198,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63792" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54039" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
