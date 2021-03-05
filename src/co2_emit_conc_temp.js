@@ -37,7 +37,7 @@ function drawLinesVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
     // your visualization goes here
     const selection = vl.selectSingle();
-  vl.markLine()
+    vl.markLine({strokeWidth:3})
         .data(co2TempArray)
         .select(selection)
   .encode(
