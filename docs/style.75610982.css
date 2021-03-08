@@ -20,7 +20,8 @@ body, html {
     display: block;
     position: relative;
     padding: 0;
-    -webkit-transform-style: preserve-3d;
+    /* -webkit- */
+    transform-style: preserve-3d;
   } 
   
   .onepage-wrapper .section {
@@ -96,4 +97,4 @@ body, html {
 
 
 
-/*# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/style.3599de8c.css.map */
+/*# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/style.75610982.css.map */
