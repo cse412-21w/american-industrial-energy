@@ -1,55 +1,436 @@
-<!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-  <title>CSE 412 Project: American Industrial Energy</title>
-  <link rel="stylesheet" href="https://cse412-21w.github.io/american-industrial-energy/style.3244cedf.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <!-- For using d3 -->
-  <script src="https://d3js.org/d3.v6.min.js"></script>
-  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-  <!-- For using vega-lite -->
-  <script src="https://cdn.jsdelivr.net/npm/vega"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap" rel="stylesheet">
-</head>
-<body>
-<h1>CSE 412 Project: American Industrial Energy</h1>
-<div class="container">
-  <div class="mySlides">
-    <!-- <div class="numbertext">1 / 7</div> -->
-    <div class="center">
-      <div class="text-block">
-        <h3> Intro paragraph </h3>
-        <h4> By: Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth</h4>
-        <p> Text here about the Project
-          <br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          <br>
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p><p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p><p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </div>
-    </div>
-  </div>
+
+<!DOCTYPE HTML>
+  <html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <title>CSE 412 Project: American Industrial Energy</title>
+        <link rel="image_src" href="https://cse412-21w.github.io/american-industrial-energy/hydro.cfd8529c.jpeg">
+
+        <link rel="shortcut icon" id="favicon" href="https://cse412-21w.github.io/american-industrial-energy/earth.94098a58.jpeg"> 
+        
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Pacifico:400" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="https://cse412-21w.github.io/american-industrial-energy/jquery.onepage-scroll.5437033d.js"></script>
+        <link href="https://cse412-21w.github.io/american-industrial-energy/onepage-scroll.ac16d811.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+        <!-- For using d3 -->
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <!-- For using vega-lite -->
+        <script src="https://cdn.jsdelivr.net/npm/vega"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap" rel="stylesheet">
+      </head>
+
+  
+  <style>html {
+      height: 100%;
+    }
+    body {
+      padding: 0;
+      text-align: center;
+      font-family: 'open sans';
+      position: relative;
+      margin: 0;
+      height: 100%;
+      -webkit-font-smoothing: antialiased;
+    }
     
-  <div class="mySlides">
-    <!-- <div class="numbertext">2 / 7</div> -->
-    <div class="graph">
-      <div id="co2_temp"></div>
-    </div>
-    <div class="center">
-      <div class="text-block">
-          <h3>Carbon dioxide emissions, concentrations, and temperature</h3>
+    .wrapper {
+    	height: 100% !important;
+    	height: 100%;
+    	margin: 0 auto; 
+    	overflow: hidden;
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    
+    
+    h1, h2 {
+      width: 100%;
+      float: left;
+    }
+    /* h1 and h1 are the default font settings. Griffin will delete later. */
+    h1 {
+      margin-top: 100px;
+      color: #000;
+      margin-bottom: 5px;
+      font-size: 70px;
+      letter-spacing: -4px;
+      font-weight: 100;
+    }
+    h1 span {
+      font-size: 26px;
+      margin: 0 5px;
+      text-transform: capitalize;
+      background: rgba(0,0,0,0.85);
+      display: inline-block;
+      color: #6D461D;
+      border-radius: 5px 5px;
+      -webkit-border-radius: 5px 5px;
+      -moz-border-radius: 5px 5px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+      padding: 3px 10px;
+    }
+
+    .main {
+      float: left;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    .main h1 {
+      padding:150px 50px;
+      float: left;
+      width: 100%;
+      font-size: 45px;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      font-weight: 100;
+      color: white;
+      margin: 0;
+    }
+    
+    header {
+      position: relative;
+      z-index: 10;
+    }
+    .main section .page_container {
+      position: relative;
+      top: 25%;
+      margin: 0 auto 0;
+      z-index: 3;
+    }
+    .main section.page1 .page_container {
+      width: 800px;
+ 
+    }
+    .main section.page1 {
+      background: url(https://cse412-21w.github.io/american-industrial-energy/earth.94098a58.jpeg) no-repeat center;
+      background-size: cover;
+      
+    }
+    .main section.page1 > img {
+      position: absolute;
+      /* opacity: 0.2; */
+      text-align: center;
+    }
+
+    .main section.page1 h1 {
+      text-align: left;
+      padding: 0;
+      margin-bottom: 15px;
+      font-size: 40px;
+      color: rgb(253, 251, 251);
+    }
+    .main section.page1 h2 {
+      text-align: left;
+      padding: 0;
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: rgb(253, 251, 251);
+    }
+    .main section.page1 p {
+      text-align: left;
+      padding: 0;
+      margin-bottom: 15px;
+      font-size: 12px;
+      color: rgb(253, 251, 251);
+    }
+
+    .main section.page2 {
+      background: url(https://cse412-21w.github.io/american-industrial-energy/oil.9137460d.jpeg) no-repeat center;
+      background-size: cover;
+      
+    }
+
+    .main section.page2 .page_container {
+      margin-left: 0 auto;
+      margin-right: 0 auto;
+      margin-top: -175px;
+    }
+    .main section.page2 .page_container_text {
+      margin-left:172px;
+
+      margin-top: 200px ;
+      padding: 5px;
+      background-color: hsla(34, 100%, 66%, 0.884);
+      width: 1182px;
+    }
+    
+    .main section.page2 h1 {
+      text-align: center;
+      padding: 0;
+      margin-bottom: 15px;
+      font-size: 40px;
+      letter-spacing: -1px;
+      color: rgb(252, 175, 10);
+    }
+
+    .main section.page2 p {
+      text-align: left;
+      /* padding: 0;
+      margin-bottom: 15px; */
+      font-size: 15px;
+      letter-spacing: -1px;
+      color: rgb(22, 21, 21);
+    }
+
+
+    .main section.page3 {
+      background:url(https://cse412-21w.github.io/american-industrial-energy/wind.75b10bd6.jpg) no-repeat;
+      background-size: cover;
+    }
+    .main section.page3 .page_container {
+      right: 250px; 
+      margin-top: -170px;
+    }
+    .main section.page3 .page_container_text {
+      margin-left:20px;
+      text-align: left;
+      margin-top: 190px ;
+      padding: 5px;
+      background-color: hsla(46, 100%, 66%, 0.568);
+      width: 1150px;
+    }
+    
+    .main section.page3 h1 {
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0;
+      font-size: 40px;
+      letter-spacing: -1px;
+      color: rgb(247, 231, 9);
+    }
+
+    .main section.page4 {
+      background: url(https://cse412-21w.github.io/american-industrial-energy/nuclear.71069dea.jpeg) no-repeat center;
+      background-size: cover;
+      
+    }
+    .main section.page4 .page_container {
+      text-align: center;
+      margin-top: -100px ;
+    }
+    .main section.page4 .page_container_text {
+      margin-left:550px;
+      text-align: left;
+      margin-top: 200px ;
+      padding: 5px;
+      background-color: hsla(194, 97%, 75%, 0.733);
+      width: 400px;
+    }
+
+    .main section.page4 h1 {
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0;
+      font-size: 40px;
+      letter-spacing: -1px;
+      color: rgb(13, 14, 13);
+    }
+
+    .main section.page5 {
+      background: url(https://cse412-21w.github.io/american-industrial-energy/solar.33f833ef.jpeg) no-repeat center;
+      background-size: cover;
+      
+    }
+
+    .main section.page5 .page_container {
+      margin-top: -150px;
+      /* margin-right: 50px; */
+      margin-left: 450px;
+      
+    }
+
+    .main section.page5 .page_container_text {
+      margin-left: 50px;
+      margin-right: 1100px;
+      margin-top: -500px;
+      /* overflow: hidden; */
+      padding: 20px;
+      text-align: left;
+      background-color: hsl(0, 0%, 98%);
+      /* width: 500px; */
+    }
+    .main section.page5 .page_container_graph {
+      margin-left: 100px;
+      text-align: right;
+      
+    }
+
+    .main section.page6 {
+      background: url(https://cse412-21w.github.io/american-industrial-energy/hydro.cfd8529c.jpeg) no-repeat center;
+      background-size: cover; 
+    }
+
+    .main section.page6 .page_container {
+      width: 1000px;
+      text-align: center;
+    }
+
+    .footer {
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+    padding-top: 4px;
+    text-align: right;
+    font-size: 12px;
+  }
+  .footer a {
+    color: #ddcb29;
+  }
+  .footer a:hover {
+    color: #ce3333;
+  }
+  .todo {
+      color: #ff0000;
+      font-size: 10pt;
+  }  
+
+    body.disabled-onepage-scroll .onepage-wrapper  section {
+      min-height: 100%;
+      height: auto;
+    }
+    
+    body.disabled-onepage-scroll .main section .page_container, body.disabled-onepage-scroll .main section.page3 .page_container  {
+      padding: 20px;
+      margin-top: 150px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    body.disabled-onepage-scroll  section .page_container h1{
+      text-align: center;
+      font-size: 50px;
+    }
+    body.disabled-onepage-scroll section .page_container h2, body.disabled-onepage-scroll section .page_container .credit, body.disabled-onepage-scroll section .page_container .btns{
+      text-align: center;
+      width: 100%;
+    }
+    
+    
+    body.disabled-onepage-scroll .main section > img {
+      position: relative;
+      max-width: 80%;
+      bottom: 0;
+    }
+    body.disabled-onepage-scroll code {
+      width: 95%;
+      margin: 0 auto 25px;
+      float: none;
+      overflow: hidden;
+    } 
+    
+    body.disabled-onepage-scroll .main section.page3 .page_container {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      right: 0;
+    }
+	  
+body .one .bsa_it_ad { background: transparent; border: none; font-family: inherit; padding: 0 15px 0 10px; margin: 0; text-align: center; }
+body .one .bsa_it_ad:hover img { -moz-box-shadow: 0 0 3px #000; -webkit-box-shadow: 0 0 3px #000; box-shadow: 0 0 3px #000; }
+body .one .bsa_it_ad .bsa_it_i { display: block; padding: 0; float: none; margin: 0 0 5px; }
+body .one .bsa_it_ad .bsa_it_i img { padding: 0; border: none; }
+body .one .bsa_it_ad .bsa_it_t { padding: 6px 0; }
+body .one .bsa_it_ad .bsa_it_d { padding: 0; font-size: 12px; color: #333; }
+body .one .bsa_it_p { display: none; }
+body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; margin: 12px 15px 0; text-align: center; }
+
+@media only screen and (min-width: 320px) and (max-width: 759px) {
+  #carbonads {
+    float: none;
+    margin: 0 auto;
+    max-width: 330px;
+  }
+  #carbonads span {
+    position: relative;
+  }
+  #carbonads > span {
+    max-width: none;
+  }
+  .carbon-img {
+    float: left;
+    margin: 0;
+  }
+
+  .carbon-img img {
+    max-width: 130px !important;
+  }
+  .carbon-text {
+    float: left;
+    margin-bottom: 0;
+    padding: 8px 20px;
+    text-align: left;
+    max-width: calc(100% - 130px - 3em);
+  }
+  .carbon-poweredby {
+    left: 130px;
+    bottom: 0;
+    display: block;
+    width: 100%;
+  }}</style>
+	    <script>function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+$(document).ready(function () {
+  var _$$onepage_scroll;
+
+  $(".main").onepage_scroll((_$$onepage_scroll = {
+    sectionContainer: "section",
+    responsiveFallback: 600,
+    loop: true,
+    animationTime: 1000,
+    // AnimationTime let you define how long each section takes to animate
+    pagination: true,
+    // You can either show or hide the pagination. Toggle true for show, false for hide.
+    updateURL: false,
+    // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+    beforeMove: function beforeMove(index) {},
+    // This option accepts a callback function. The function will be called before the page moves.
+    afterMove: function afterMove(index) {}
+  }, _defineProperty(_$$onepage_scroll, "loop", false), _defineProperty(_$$onepage_scroll, "keyboard", true), _defineProperty(_$$onepage_scroll, "responsiveFallback", false), _defineProperty(_$$onepage_scroll, "direction", "vertical"), _$$onepage_scroll));
+});</script>
+
+<body>
+  <div class="wrapper">
+	  <div class="main">
+      <section class="page1">
+        <div class="page_container">
+          <h1> Intro paragraph </h1>
+          <h2> By: Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth</h2>
+          <p> Text here about the Project
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            <br>
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p><p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p><p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+
+        </div>
+      </section>
+
+      <section class="page2">
+	      <div class="page_container">
+            <h1>Carbon dioxide emissions, concentrations, and temperature</h1>
+            <div id="co2_temp"></div>
+	      </div>
+        <div class="page_container_text">
           <p>Since the beginning of the Industrial Revolution in the mid-18th century, the
             consumption of fossil fuels for the production of energy has steadily and nearly exponentially risen,
             and along with it the emissions of carbon dioxide.
@@ -60,213 +441,129 @@
           </p><p>Anthropogenic emissions of carbon dioxide have
             led to a steady rise in the atmospheric concentration of CO2 from about 278 ppm
             before the Industrial Revolution to about 414 ppm in 2020.
-            <br>
             Future concentrations depend on the emissions pathway chosen by humankind.
             <br>
           </p><p>Carbon dioxide is the primary greenhouse gas. Its increasing concentration has led to
-            an increase in temperatures across the globe.
+            an increase in temperatures across the globe. Future 
             <br>
-            Future temperatures will depend on the emissions pathway.
-            <br>
+            temperatures will depend on the emissions pathway.
             Shown are global average temperatures in degrees Celsius
             relative to their average between 1850 and 1900.
             <br>
             The goal of the Paris Agreement (2015) is to limit global warming to well below 2,
             preferably to 1.5 degrees Celsius, compared to pre-industrial levels.
-            <br>Only the low emission path will fully meet this goal.
-          </p>
+            <br>Only the low emission path will fully meet this goal.<br>
+          
           Source: <a href="http://www.climatechange2013.org/images/report/WG1AR5_AIISM_Datafiles.xlsx">
             IPCC</a>,
-          <br>
+          
           <a href="https://www.ncdc.noaa.gov/monitoring-references/faq/anomalies.php#anomalies">
-            NOAA/NCEI</a>
-            
-           <p class="todo">TODO:
+             NOAA/NCEI</a>
+            </p>
+           <!-- <p class="todo">TODO:
             <br>
             Colors should be different (e.g., black for historical,
-            blue to red for emissions paths)
-            <br> put source into graphs?
-        </p></div>
-    </div> 
-  </div>
-  <div class="mySlides">
-    <!-- <div class="numbertext">3 / 7</div> -->
-    <div class="graph">
-      <div id="co2_by_fuel"></div>
-    </div>
-    <div class="center">
-      <div class="text-block">
-        <h3>Carbon dioxide emissions by fuel type</h3>
-        <p>The amount of CO2 per energy produced depends on the type of fuel. It is given
-          here in units of pounds of CO2 emitted per million British Thermal Units (BTU).
-          <br>
-          The higher the hydrogen to carbon ratio in the fuel, the lower the CO2 emissions.
-          Coal is primarily carbon, whereas natural gas (methane, CH4) has an H:C ratio of 4.
-          Replacing coal-fired power plants with gas-fired ones cuts CO2 emissions by
-          almost 50 percent for the same amount of energy produced.
-          <br>Electricity generation from nuclear power plants and renewable energy
-          (hydroelectric, wind, solar, geothermal) does not cause CO2 emissions at the
-          time of electricity generation, but is usually associated with indirect emissions,
-          either from producing wind turbines or solar panels, or during the mining and
-          processing of uranium fuel.
-          <br>
-          Source: <a href="https://www.eia.gov/tools/faqs/faq.php?id=73&t=11">EIA</a>
-          </p><p class="todo">TODO: Improve labeling (larger font sizes, horizontal on x-axis), put source into graph</p>
-        <p></p>
-      </div>
-    </div> 
-  </div>
-  <div class="mySlides">
-    <!-- <div class="numbertext">4 / 7</div> -->
-    <div class="graph">
-      <div id="co2_by_sector"></div>
-    </div>
-    <div class="center">
-      <div class="text-block">
-        <h3>Carbon dioxide emissions by sector</h3>
-        Electricity generation, industry, and agriculture combined are responsible for about
-        60 % of total CO2 emissions in the US (values for 2018).
-        <br>
-        Therefore, we will focus on these sectors in the following.          
-        <br>
-        Source: <a href="https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions">
-          EPA</a>
-        <p class="todo">TODO: Improve labeling
-          </p>
-      </div>
-    </div>
-  </div>
-    
-  <div class="mySlides">
-    <!-- <div class="numbertext">5 / 7</div> -->
-    
-    <div class="center">
-      <div id="energy_consumption_map" style="width:1050px; margin:0 auto;">
-        <iframe width="100%" height="803" frameborder="0" src="https://observablehq.com/embed/@isaack8/american-industrial-energy-handbook-data-wrangling?cells=viewof+r_color%2Cviewof+r_scale%2Ctest1"></iframe>
-        <div class="text-block">
-          <h3> Energy consumption by county</h3>
-          <p> The amount of energy in mmBTU's each county consumed in 2016. A diverging-log scale is used to highlight the lowest and highest electricity consumers</p>
-          <p class="todo">TODO: </p>
+            blue to red for emissions paths) put source into graphs? </p> -->
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="mySlides">
-    <!-- <div class="numbertext">6 / 7</div> -->
-    <div class="graph">
-      <img src="https://cse412-21w.github.io/american-industrial-energy/energy_consumption_2016.049b7231.png" width="600">
-    </div>
-    <div class="center">
+      </section>
+	    
+      <section class="page3">
+        <div class="page_container">
+          <h1>Carbon dioxide emissions by fuel type:</h1>
+          <div id="co2_by_fuel"></div>
+	      </div>
+        <div class="page_container_text">
+              <p>The amount of CO2 per energy produced depends on the type of fuel. It is given
+               here in units of pounds of CO2 emitted per million British Thermal Units (BTU).
+              <br>
+              The higher the hydrogen to carbon ratio in the fuel, the lower the CO2 emissions.
+              Coal is primarily carbon, whereas natural gas (methane, CH4) has an H:C ratio of 4.
+              Replacing coal-fired power plants with gas-fired ones cuts CO2 emissions by
+              almost 50 percent for the same amount of energy produced.
+              <br>Electricity generation from nuclear power plants and renewable energy
+              (hydroelectric, wind, solar, geothermal) does not cause CO2 emissions at the
+              time of electricity generation, but is usually associated with indirect emissions,
+              either from producing wind turbines or solar panels, or during the mining and
+              processing of uranium fuel.
+              <br>
+              Source: <a href="https://www.eia.gov/tools/faqs/faq.php?id=73&t=11">EIA</a>
+              <!-- <p class="todo">TODO: Improve labeling (larger font sizes, horizontal on x-axis), put source into graph</p>
+              </p> -->
+          </p></div>
+      </section>
+	    
+	    <section class="page4">
+        <div class="page_container">
+          <h1>Carbon dioxide emissions by sector:</h1>
+          <div id="co2_by_sector"></div>
+	      </div>
+        <div class="page_container_text">
+              Electricity generation, industry, and agriculture combined are responsible for about
+              60 % of total CO2 emissions in the US (values for 2018).
+              <br>
+              Therefore, we will focus on these sectors in the following.          
+              <br>
+              Source: <a href="https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions">
+                EPA</a>
+              <!-- <p class="todo">TODO: Improve labeling
+                </p> -->
+	      </div>
+      </section>
+
       
-      <div class="text-block">
-        <h3>Connection of Usage for 8 different kinds of Energy and 4 different sectors</h3>
-        <p> The size of the connection implies the amount of usage of a kind of energy to a category of a sector.
-        </p>
-          <p class="todo">TODO:
-            <br>
-            Consider the readbility of label and opacity of the connection due to the big
-            size of the data. It should be linked to county selector in map chart.
-           </p>
-      </div>
-    </div>
-  </div>
-  <div class="mySlides">
-    <!-- <div class="numbertext">7 / 7</div> -->
-    <div class="center">
-      <div class="text-block">
-        <h3> extra slide</h3>
-         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          <br>
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p><p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p><p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </div>
-    </div>
-  </div>
+	    <section class="page5">
+        <div class="page_container">
+          <div id="energy_consumption_map" style="width:1000px; margin:0 auto;">
+            <iframe width="100%" height="800" frameborder="0" src="https://observablehq.com/embed/@isaack8/american-industrial-energy-handbook-data-wrangling?cells=viewof+r_color%2Cviewof+r_scale%2Ctest1"></iframe>
+          </div>
+        </div>
+        <div class="page_container_text">
+          <h3> Energy consumption by county</h3>
+          <p> The amount of energy in mmBTU's each county consumed
+            <br> in 2016. A diverging-log scale is used to highlight 
+            <br> the lowest and highest electricity consumers</p>
+      
+        
+        </div>
+      </section>
+
+	    <section class="page6">
+        <div class="page_container">
+
+        </div>
+
+      </section>
     
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-  <div class="caption-container">
-    <p id="caption"></p>
+      <section class="page7">
+        <div class="page_container">
+          
+        </div>
+
+      </section>
+
+      <section class="page8">
+        <div class="page_container">
+          <img src="https://cse412-21w.github.io/american-industrial-energy/energy_consumption_2016.049b7231.png" width="600">
+          <h3>Connection of Usage for 8 different kinds of Energy and 4 different sectors</h3>
+          <p> The size of the connection implies the amount of usage of a kind of energy to a category of a sector.
+          </p>
+            <!-- <p class="todo">TODO:
+              <br>
+              Consider the readbility of label and opacity of the connection due to the big
+              size of the data. It should be linked to county selector in map chart.
+             </p> -->
+        </div>
+      </section>
+
   </div>
-  <div class="row">
-    <div class="column">
-      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/earth.43432d77.jpeg" style="width:100%" onclick="currentSlide(1)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/wind.f516c1ed.jpeg" style="width:100%" onclick="currentSlide(2)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/coal.b9b2b3f1.jpeg" style="width:100%" onclick="currentSlide(3)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/hydro.cfd8529c.jpeg" style="width:100%" onclick="currentSlide(4)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/nuclear.71069dea.jpeg" style="width:100%" onclick="currentSlide(5)">
-    </div>    
-    <div class="column">
-      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/oil.9137460d.jpeg" style="width:100%" onclick="currentSlide(6)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://cse412-21w.github.io/american-industrial-energy/earth.43432d77.jpeg" style="width:100%" onclick="currentSlide(7)">
-    </div>
-  </div>
-</div>
-<script>var slideIndex = 1;
-showSlides(slideIndex);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-11278966-3"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.2946ba1a.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.bdc5d7f1.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.eeba335b.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/pm25_coal.878c2efa.js"></script>
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  captionText.innerHTML = dots[slideIndex - 1].alt;
-}</script>
-<div class="footer">
-  <a href="http://www.washington.edu">University of Washington</a>
-  <br>
-  <a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a>
-</div>
-<!-- it is recommended to put js files before </body> -->
-<!-- or check load event fot addEventListener() if you want to put js in the <head> -->
-<script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.54a32331.js"></script>
-<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.4241f3c2.js"></script>
-<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.0e5c2fed.js"></script>
-<script src="https://cse412-21w.github.io/american-industrial-energy/pm25_coal.c716670f.js"></script>
-    
-</body>
+</div></body>
 </html>

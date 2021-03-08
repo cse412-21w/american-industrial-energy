@@ -173,4 +173,4 @@ function drawBarVegaLite() {
   });
 }
 },{"../static/co2_by_fuel.csv":"CApY"}]},{},["NQYw"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.4241f3c2.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.bdc5d7f1.js.map

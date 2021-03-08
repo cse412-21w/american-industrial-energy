@@ -183,4 +183,4 @@ function drawLinesVegaLite() {
   });
 }
 },{"../static/co2_emit_conc_temp.csv":"GXD6"}]},{},["eBXs"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.54a32331.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.2946ba1a.js.map

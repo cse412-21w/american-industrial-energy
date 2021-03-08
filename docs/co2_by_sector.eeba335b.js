@@ -117,12 +117,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"yYsN":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/american-industrial-energy/coal_consumption_air_quality.7aa34982.csv";
-},{}],"uNvF":[function(require,module,exports) {
+})({"lsDO":[function(require,module,exports) {
+module.exports = "https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.3c557c4e.csv";
+},{}],"uWdX":[function(require,module,exports) {
 "use strict";
 
-var _coal_consumption_air_quality = _interopRequireDefault(require("../static/coal_consumption_air_quality.csv"));
+var _co2_by_sector = _interopRequireDefault(require("../static/co2_by_sector.csv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -131,7 +131,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // With strict mode, you can not, for example, use undeclared variables
 
 
-var coalArray = []; // used to store data later
+var co2BySectorArray = []; // used to store data later
 
 var options = {
   config: {// Vega-Lite default configuration
@@ -151,23 +151,21 @@ var options = {
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
-d3.csv(_coal_consumption_air_quality.default).then(function (data) {
+d3.csv(_co2_by_sector.default).then(function (data) {
   data.forEach(function (d) {
-    coalArray.push(d);
+    co2BySectorArray.push(d);
   });
-  drawPointVegaLite();
+  drawPieVegaLite();
 });
 
-function drawPointVegaLite() {
+function drawPieVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markPoint({
-    color: 'black'
-  }).data(coalArray).encode(vl.x().fieldQ('Days PM25'), vl.y().fieldQ('MMBTU'), vl.tooltip(['County', 'State'])).width(450).height(450).render().then(function (viewElement) {
+  vl.markArc().data(co2BySectorArray).encode(vl.theta().fieldQ('Contribution (%)').sort('none'), vl.color().fieldN('Sector').sort('none'), vl.tooltip(['Sector', 'Contribution (%)'])).width(300).height(300).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('pm25').appendChild(viewElement);
+    document.getElementById('co2_by_sector').appendChild(viewElement);
   });
 }
-},{"../static/coal_consumption_air_quality.csv":"yYsN"}]},{},["uNvF"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/pm25_coal.c716670f.js.map
+},{"../static/co2_by_sector.csv":"lsDO"}]},{},["uWdX"], null)
+//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.eeba335b.js.map
