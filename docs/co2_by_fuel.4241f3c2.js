@@ -117,12 +117,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"lsDO":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.3c557c4e.csv";
-},{}],"uWdX":[function(require,module,exports) {
+})({"CApY":[function(require,module,exports) {
+module.exports = "https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.a7b9a89e.csv";
+},{}],"NQYw":[function(require,module,exports) {
 "use strict";
 
-var _co2_by_sector = _interopRequireDefault(require("../static/co2_by_sector.csv"));
+var _co2_by_fuel = _interopRequireDefault(require("../static/co2_by_fuel.csv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -131,7 +131,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // With strict mode, you can not, for example, use undeclared variables
 
 
-var co2BySectorArray = []; // used to store data later
+var co2ByFuelArray = []; // used to store data later
 
 var options = {
   config: {// Vega-Lite default configuration
@@ -151,21 +151,26 @@ var options = {
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
-d3.csv(_co2_by_sector.default).then(function (data) {
+d3.csv(_co2_by_fuel.default).then(function (data) {
   data.forEach(function (d) {
-    co2BySectorArray.push(d);
+    co2ByFuelArray.push(d);
   });
-  drawPieVegaLite();
+  drawBarVegaLite();
 });
 
-function drawPieVegaLite() {
+function drawBarVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markArc().data(co2BySectorArray).encode(vl.theta().fieldQ('Contribution (%)').sort('none'), vl.color().fieldQ('Contribution (%)').sort('none'), vl.tooltip(['Sector', 'Contribution (%)'])).width(300).height(300).render().then(function (viewElement) {
+  vl.markBar({
+    filled: true,
+    color: 'black'
+  }).data(co2ByFuelArray).encode(vl.x().fieldN('Fuel').sort('none'), vl.y().fieldQ('CO2'), vl.color().fieldQ('CO2').scale({
+    scheme: 'greys'
+  }), vl.tooltip('Tooltip')).width(700).height(300).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('co2_by_sector').appendChild(viewElement);
+    document.getElementById('co2_by_fuel').appendChild(viewElement);
   });
 }
-},{"../static/co2_by_sector.csv":"lsDO"}]},{},["uWdX"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.77d83f28.js.map
+},{"../static/co2_by_fuel.csv":"CApY"}]},{},["NQYw"], null)
+//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.4241f3c2.js.map

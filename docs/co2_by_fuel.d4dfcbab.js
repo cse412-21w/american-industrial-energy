@@ -166,7 +166,7 @@ function drawBarVegaLite() {
     color: 'black'
   }).data(co2ByFuelArray).encode(vl.x().fieldN('Fuel').sort('none'), vl.y().fieldQ('CO2'), vl.color().fieldQ('CO2').scale({
     scheme: 'greys'
-  }), vl.tooltip('Tooltip')).width(500).height(300).render().then(function (viewElement) {
+  }), vl.tooltip('Tooltip')).width(700).height(300).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
     document.getElementById('co2_by_fuel').appendChild(viewElement);
@@ -200,7 +200,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61951" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63449" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

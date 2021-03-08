@@ -44,7 +44,7 @@ function drawBarVegaLite() {
       vl.color().fieldQ('CO2').scale({scheme: 'greys'}),
       vl.tooltip('Tooltip'),
   )
-  .width(500)
+  .width(700)
   .height(300)
   .render()
   .then(viewElement => {

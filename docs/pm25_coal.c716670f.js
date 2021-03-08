@@ -117,12 +117,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"GXD6":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.9f9e6389.csv";
-},{}],"eBXs":[function(require,module,exports) {
+})({"yYsN":[function(require,module,exports) {
+module.exports = "https://cse412-21w.github.io/american-industrial-energy/coal_consumption_air_quality.7aa34982.csv";
+},{}],"uNvF":[function(require,module,exports) {
 "use strict";
 
-var _co2_emit_conc_temp = _interopRequireDefault(require("../static/co2_emit_conc_temp.csv"));
+var _coal_consumption_air_quality = _interopRequireDefault(require("../static/coal_consumption_air_quality.csv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -131,7 +131,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // With strict mode, you can not, for example, use undeclared variables
 
 
-var co2TempArray = []; // used to store data later
+var coalArray = []; // used to store data later
 
 var options = {
   config: {// Vega-Lite default configuration
@@ -151,24 +151,23 @@ var options = {
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
-d3.csv(_co2_emit_conc_temp.default).then(function (data) {
+d3.csv(_coal_consumption_air_quality.default).then(function (data) {
   data.forEach(function (d) {
-    co2TempArray.push(d);
+    coalArray.push(d);
   });
-  drawLinesVegaLite();
+  drawPointVegaLite();
 });
 
-function drawLinesVegaLite() {
+function drawPointVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  var selection = vl.selectSingle();
-  vl.markLine().data(co2TempArray).select(selection).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.opacity().if(selection).value(0.3), vl.tooltip('Emissions path')).width(300).height(300).repeat({
-    column: ['CO2 emissions (Pg/yr)', 'CO2 concentrations (ppm)', 'Temperature']
-  }).render().then(function (viewElement) {
+  vl.markPoint({
+    color: 'black'
+  }).data(coalArray).encode(vl.x().fieldQ('Days PM25'), vl.y().fieldQ('MMBTU'), vl.tooltip(['County', 'State'])).width(450).height(450).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('co2_temp').appendChild(viewElement);
+    document.getElementById('pm25').appendChild(viewElement);
   });
 }
-},{"../static/co2_emit_conc_temp.csv":"GXD6"}]},{},["eBXs"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.94eab6c1.js.map
+},{"../static/coal_consumption_air_quality.csv":"yYsN"}]},{},["uNvF"], null)
+//# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/pm25_coal.c716670f.js.map

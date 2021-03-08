@@ -162,9 +162,21 @@ function drawLinesVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
   var selection = vl.selectSingle();
-  vl.markLine().data(co2TempArray).select(selection).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.opacity().if(selection).value(0.3), vl.tooltip('Emissions path')).width(300).height(300).repeat({
-    column: ['CO2 emissions (Pg/yr)', 'CO2 concentrations (ppm)', 'Temperature']
-  }).render().then(function (viewElement) {
+  var co2vars = vl.markLine({
+    strokeWidth: 3
+  }).select(selection).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.opacity().if(selection).value(0.3), vl.tooltip('Emissions path')).width(300).height(300).repeat({
+    column: ['CO2 emissions (Pg/yr)', 'CO2 concentrations (ppm)']
+  });
+  var tempvar = vl.layer(vl.markLine({
+    strokeWidth: 3
+  }).select(selection).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.opacity().if(selection).value(0.3), vl.tooltip('Emissions path')), vl.markRule({
+    stroke: 'red'
+  }).data([{
+    'Temperature': 2.0
+  }]).encode(vl.y().fieldQ('Temperature'))).width(300).height(300).repeat({
+    column: ['Temperature']
+  });
+  vl.data(co2TempArray).hconcat(co2vars, tempvar).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
     document.getElementById('co2_temp').appendChild(viewElement);
@@ -198,7 +210,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61951" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63449" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

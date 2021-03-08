@@ -37,27 +37,50 @@ function drawLinesVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
     // your visualization goes here
     const selection = vl.selectSingle();
-    vl.markLine({strokeWidth:3})
-        .data(co2TempArray)
+    const co2vars = vl.markLine({strokeWidth:3})        
         .select(selection)
-  .encode(
-      vl.x().fieldT('Year'),
-      vl.y().fieldQ(vl.repeat('column')),
-      vl.color().fieldN('Emissions path').sort('none'),
-      vl.opacity().if(selection).value(0.3),
-      vl.tooltip('Emissions path'),
-  )
+          .encode(
+              vl.x().fieldT('Year'),
+              vl.y().fieldQ(vl.repeat('column')),
+              vl.color().fieldN('Emissions path').sort('none'),
+              vl.opacity().if(selection).value(0.3),
+              vl.tooltip('Emissions path'),
+          )
+          .width(300)
+          .height(300)
+          .repeat({
+              column: ['CO2 emissions (Pg/yr)', 'CO2 concentrations (ppm)']
+          })
+    
+    const tempvar = vl.layer(
+        vl.markLine({strokeWidth:3})        
+            .select(selection)
+            .encode(
+                vl.x().fieldT('Year'),
+                vl.y().fieldQ(vl.repeat('column')),
+                vl.color().fieldN('Emissions path').sort('none'),
+                vl.opacity().if(selection).value(0.3),
+                vl.tooltip('Emissions path'),
+            ),
+        vl.markRule({stroke:'red'})
+            .data([{'Temperature':2.0}])
+            .encode(
+                vl.y().fieldQ('Temperature')
+            )
+    )
   .width(300)
   .height(300)
   .repeat({
-      column: ['CO2 emissions (Pg/yr)', 'CO2 concentrations (ppm)',
-               'Temperature']
+      column: ['Temperature']
   })
-  .render()
-  .then(viewElement => {
-    // render returns a promise to a DOM element containing the chart
-    // viewElement.value contains the Vega View object instance
-    document.getElementById('co2_temp').appendChild(viewElement);
-  });
+
+    vl.data(co2TempArray)
+        .hconcat(co2vars,tempvar)
+        .render()
+        .then(viewElement => {
+            // render returns a promise to a DOM element containing the chart
+            // viewElement.value contains the Vega View object instance
+            document.getElementById('co2_temp').appendChild(viewElement);
+        });
 }
   
