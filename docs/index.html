@@ -58,6 +58,7 @@
       width: 100%;
       float: left;
     }
+
     /* h1 and h1 are the default font settings. Griffin will delete later. */
     h1 {
       margin-top: 100px;
@@ -301,7 +302,7 @@
       height: auto;
     }
     
-    body.disabled-onepage-scroll .main section .page_container, body.disabled-onepage-scroll .main section.page3 .page_container  {
+    body.disabled-onepage-scroll .main section .page_container, body.disabled-onepage-scroll .main section.page7 .page_container  {
       padding: 20px;
       margin-top: 150px;
       -webkit-box-sizing: border-box;
@@ -382,25 +383,31 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
   }}</style>
 
 
-	    <script>function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-$(document).ready(function () {
-  var _$$onepage_scroll;
-
-  $(".main").onepage_scroll((_$$onepage_scroll = {
+	  <script>$(document).ready(function () {
+  $(".main").onepage_scroll({
     sectionContainer: "section",
-    responsiveFallback: 600,
-    loop: true,
+    easing: "ease",
     animationTime: 1000,
     // AnimationTime let you define how long each section takes to animate
     pagination: true,
     // You can either show or hide the pagination. Toggle true for show, false for hide.
-    updateURL: false,
+    updateURL: true,
     // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
     beforeMove: function beforeMove(index) {},
     // This option accepts a callback function. The function will be called before the page moves.
-    afterMove: function afterMove(index) {}
-  }, _defineProperty(_$$onepage_scroll, "loop", false), _defineProperty(_$$onepage_scroll, "keyboard", true), _defineProperty(_$$onepage_scroll, "responsiveFallback", false), _defineProperty(_$$onepage_scroll, "direction", "vertical"), _$$onepage_scroll));
+    afterMove: function afterMove(index) {},
+    // This option accepts a callback function. The function will be called after the page moves.
+    loop: true,
+    // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+    keyboard: true,
+    // You can activate the keyboard controls
+    responsiveFallback: false,
+    // You can fallback to normal page scroll by defining the width of the browser in which
+    // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
+    // the browser's width is less than 600, the fallback will kick in.
+    direction: "vertical" // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".  
+
+  });
 });</script>
 
 
@@ -494,73 +501,11 @@ $(document).ready(function () {
           </p></div>
       </section>
 	    
-	    <section class="page4">
-        <div class="page_container">
-          <h1>Carbon dioxide emissions by sector:</h1>
-          <div id="co2_by_sector"></div>
-	      </div>
-        <div class="page_container_text">
-              Electricity generation, industry, and agriculture combined are responsible for about
-              60 % of total CO2 emissions in the US (values for 2018).
-              <br>
-              Therefore, we will focus on these sectors in the following.          
-              <br>
-              Source: <a href="https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions">
-                EPA</a>
-              <!-- <p class="todo">TODO: Improve labeling
-                </p> -->
-	      </div>
-      </section>
-
-      
-	    <section class="page5">
-        <div class="page_container">
-          <div id="energy_consumption_map" style="width:1000px; margin:0 auto;">
-            <iframe width="100%" height="800" frameborder="0" src="https://observablehq.com/embed/@isaack8/american-industrial-energy-handbook-data-wrangling?cells=viewof+r_color%2Cviewof+r_scale%2Ctest1"></iframe>
-          </div>
-        </div>
-        <div class="page_container_text">
-          <h3> Energy consumption by county</h3>
-          <p> The amount of energy in mmBTU's each county consumed
-            <br> in 2016. A diverging-log scale is used to highlight 
-            <br> the lowest and highest electricity consumers</p>
-      
-        
-        </div>
-      </section>
-
-	    <section class="page6">
-        <div class="page_container">
-
-        </div>
-
-      </section>
-    
-      <section class="page7">
-        <div class="page_container">
-          
-        </div>
-
-      </section>
-
-      <section class="page8">
-        <div class="page_container">
-          <img src="https://cse412-21w.github.io/american-industrial-energy/energy_consumption_2016.049b7231.png" width="600">
-          <h3>Connection of Usage for 8 different kinds of Energy and 4 different sectors</h3>
-          <p> The size of the connection implies the amount of usage of a kind of energy to a category of a sector.
-          </p>
-            <!-- <p class="todo">TODO:
-              <br>
-              Consider the readbility of label and opacity of the connection due to the big
-              size of the data. It should be linked to county selector in map chart.
-             </p> -->
-        </div>
-      </section>
-
+	    
   <!-- </div> -->
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-11278966-3"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11278966-3"></script> -->
   <script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.2946ba1a.js"></script>
   <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.bdc5d7f1.js"></script>
   <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.eeba335b.js"></script>
