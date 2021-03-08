@@ -296,7 +296,7 @@
     .main section.page2 .page_container_text {
       margin-left:172px;
 
-      margin-top: 50px ;
+      margin-top: 200px ;
       padding: 5px;
       background-color: hsla(34, 100%, 66%, 0.884);
       width: 1182px;
@@ -381,7 +381,7 @@
     }
 
     .main section.page5 .page_container {
-      margin-top: 0px;
+      margin-top: -100px;
       /* margin-right: 50px; */
       margin-left: 450px;
       
@@ -390,7 +390,7 @@
     .main section.page5 .page_container_text {
       margin-left: 50px;
       margin-right: 1100px;
-      margin-bottom: 50px;
+      margin-top: -500px;
       /* overflow: hidden; */
       padding: 20px;
       text-align: left;
@@ -537,27 +537,16 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
 	    </style>
 
 
-	  <script>
-	  $(document).ready(function(){
-      $(".main").onepage_scroll({
-        sectionContainer: "section",
-
-        easing: "ease", 
-        animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
-        pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
-        updateURL: true,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
-        beforeMove: function(index) {},  // This option accepts a callback function. The function will be called before the page moves.
-        afterMove: function(index) {},   // This option accepts a callback function. The function will be called after the page moves.
-        loop: true,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
-        keyboard: true,                  // You can activate the keyboard controls
-        responsiveFallback: true,        // You can fallback to normal page scroll by defining the width of the browser in which
-                                          // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
-                                          // the browser's width is less than 600, the fallback will kick in.
-        direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".  
-      });
-		});
-		
-	</script>
+<script>
+  $(document).ready(function(){
+    $(".main").onepage_scroll({
+      sectionContainer: "section",
+      responsiveFallback: 600,
+      loop: true
+    });
+  });
+  
+</script>
 
 </head>
 <body>
