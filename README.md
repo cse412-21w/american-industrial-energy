@@ -2,10 +2,15 @@
 ## Team Members
 Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth
 ### Contribution Statements
-Isaac:
-Hartmut:
-Janice:
-Griffin: I was in charge of the HTML/CSS...
+#### Isaac:
+
+#### Hartmut:
+
+#### Janice:
+
+#### Griffin: 
+I was in charge of the HTML/CSS...
+
 ## Project Proposal Abstract
 This is the space for you to add a description for your project.
 
