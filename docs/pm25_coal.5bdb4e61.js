@@ -117,27 +117,21 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../static/co2_by_sector.csv":[function(require,module,exports) {
-module.exports = "/co2_by_sector.7f9200a1.csv";
-},{}],"co2_by_sector.js":[function(require,module,exports) {
+})({"../static/coal_consumption_air_quality.csv":[function(require,module,exports) {
+module.exports = "/coal_consumption_air_quality.0337689e.csv";
+},{}],"pm25_coal.js":[function(require,module,exports) {
 "use strict";
 
-var _co2_by_sector = _interopRequireDefault(require("../static/co2_by_sector.csv"));
+var _coal_consumption_air_quality = _interopRequireDefault(require("../static/coal_consumption_air_quality.csv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // import dataset
 "use strict"; // the code should be executed in "strict mode".
 // With strict mode, you can not, for example, use undeclared variables
 
 
-var co2BySectorArray = []; // used to store data later
+var coalArray = []; // used to store data later
 
 var options = {
   config: {// Vega-Lite default configuration
@@ -157,38 +151,25 @@ var options = {
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
-d3.csv(_co2_by_sector.default).then(function (data) {
+d3.csv(_coal_consumption_air_quality.default).then(function (data) {
   data.forEach(function (d) {
-    co2BySectorArray.push(d);
+    coalArray.push(d);
   });
-  drawPieVegaLite();
+  drawPointVegaLite();
 });
 
-function drawPieVegaLite() {
+function drawPointVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  var arc = vl.markArc().data(co2BySectorArray).encode(vl.theta().fieldQ('Contribution (%)').sort('none').stack(true), vl.color().fieldN('Sector').sort('none').legend(null));
-  var textConfig = {
-    radius: 400 / 3,
-    align: "center",
-    dy: 15
-  };
-  var textName = arc.markText(_objectSpread(_objectSpread({}, textConfig), {}, {
-    fontWeight: "bold",
-    fontSize: 12
-  })).encode(vl.text().fieldN('Sector'), vl.color().value("Black"));
-  var textValue = textName.markText(_objectSpread(_objectSpread({}, textConfig), {}, {
-    dy: -7,
-    fontWeight: "bold",
-    fontSize: 14
-  })).encode(vl.text().fieldQ('Contribution (%)'));
-  vl.layer(arc, textName, textValue).width(500).height(500).render().then(function (viewElement) {
+  vl.markPoint({
+    color: 'black'
+  }).data(coalArray).encode(vl.x().fieldQ('Days PM25'), vl.y().fieldQ('MMBTU'), vl.tooltip(['County', 'State'])).width(450).height(450).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('co2_by_sector').appendChild(viewElement);
+    document.getElementById('pm25').appendChild(viewElement);
   });
 }
-},{"../static/co2_by_sector.csv":"../static/co2_by_sector.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../static/coal_consumption_air_quality.csv":"../static/coal_consumption_air_quality.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -216,7 +197,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55677" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54097" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -392,5 +373,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","co2_by_sector.js"], null)
-//# sourceMappingURL=/co2_by_sector.11edd0cd.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","pm25_coal.js"], null)
+//# sourceMappingURL=/pm25_coal.5bdb4e61.js.map

@@ -36,15 +36,27 @@ d3.csv(co2BySectorData).then(function(data) {
 function drawPieVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markArc()
+  const arc = vl.markArc()
   .data(co2BySectorArray)
   .encode(
-      vl.theta().fieldQ('Contribution (%)').sort('none'),
-      vl.color().fieldN('Sector').sort('none'),
-      vl.tooltip(['Sector','Contribution (%)']),
+      vl.theta().fieldQ('Contribution (%)').sort('none').stack(true),
+      vl.color().fieldN('Sector').sort('none').legend(null)
   )
-  .width(400)
-  .height(400)
+
+  const textConfig = { radius: 400 / 3, align: "center", dy: 15 };
+  const textName = arc
+    .markText({ ...textConfig, fontWeight: "bold", fontSize: 12 })
+    .encode(
+        vl.text().fieldN('Sector'),
+        vl.color().value("Black")
+    );
+  const textValue = textName
+    .markText({ ...textConfig, dy: -7, fontWeight: "bold", fontSize: 14 })
+    .encode(vl.text().fieldQ('Contribution (%)'));
+
+    vl.layer(arc, textName, textValue)    
+  .width(500)
+  .height(500)
   .render()
   .then(viewElement => {
     // render returns a promise to a DOM element containing the chart

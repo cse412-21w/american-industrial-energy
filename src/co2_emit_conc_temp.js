@@ -38,7 +38,7 @@ function drawLinesVegaLite() {
     // your visualization goes here
     const selection = vl.selectSingle();
     const co2vars = vl.markLine({strokeWidth:3})        
-        .select(selection)
+          .select(selection)
           .encode(
               vl.x().fieldT('Year'),
               vl.y().fieldQ(vl.repeat('column')),
@@ -66,7 +66,16 @@ function drawLinesVegaLite() {
             .data([{'Temperature':2.0}])
             .encode(
                 vl.y().fieldQ('Temperature')
-            )
+            ),
+        vl.markText({
+            align: 'center',
+            dx: 0,
+            dy: -10,
+            fontSize: 14,
+            color: "firebrick"
+        })
+            .data([0])
+            .encode( vl.text().datum("Paris Agreement limit: 2˚C") )
     )
   .width(300)
   .height(300)
