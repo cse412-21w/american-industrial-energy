@@ -1,8 +1,11 @@
 # Final Project Demo
 ## Team Members
-Place your team member names here.
+Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth
 ### Contribution Statements
-Add individual contribution statements here.
+Isaac:
+Hartmut:
+Janice:
+Griffin: I was in charge of the HTML/CSS...
 ## Project Proposal Abstract
 This is the space for you to add a description for your project.
 
