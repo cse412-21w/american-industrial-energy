@@ -43,8 +43,8 @@ function drawPieVegaLite() {
       vl.color().fieldN('Sector').sort('none'),
       vl.tooltip(['Sector','Contribution (%)']),
   )
-  .width(300)
-  .height(300)
+  .width(400)
+  .height(400)
   .render()
   .then(viewElement => {
     // render returns a promise to a DOM element containing the chart

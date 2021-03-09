@@ -36,14 +36,14 @@ body, html {
     z-index: 5;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 20;
   }
   .onepage-pagination li {
-    padding: 0;
+    padding: 20;
     text-align: center;
   }
   .onepage-pagination li a{
-    padding: 10px;
+    padding: 15px;
     width: 4px;
     height: 4px;
     display: block;
@@ -52,21 +52,22 @@ body, html {
   .onepage-pagination li a:before{
     content: '';
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(0,0,0,0.85);
-    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    background: rgb(252, 251, 251);
+    border: 2px solid black;
+    border-radius: 15px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
   }
   
   .onepage-pagination li a.active:before{
-    width: 10px;
-    height: 10px;
-    background: none;
-    border: 1px solid black;
-    margin-top: -4px;
-    left: 8px;
+    width: 20px;
+    height: 20px;
+    background:  rgb(14, 13, 13);;
+    border: 5px solid black;
+    margin-top: -5px;
+    left: 50px;
   }
   
   .disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {

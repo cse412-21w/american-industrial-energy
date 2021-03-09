@@ -161,7 +161,7 @@ d3.csv(_co2_by_sector.default).then(function (data) {
 function drawPieVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markArc().data(co2BySectorArray).encode(vl.theta().fieldQ('Contribution (%)').sort('none'), vl.color().fieldN('Sector').sort('none'), vl.tooltip(['Sector', 'Contribution (%)'])).width(300).height(300).render().then(function (viewElement) {
+  vl.markArc().data(co2BySectorArray).encode(vl.theta().fieldQ('Contribution (%)').sort('none'), vl.color().fieldN('Sector').sort('none'), vl.tooltip(['Sector', 'Contribution (%)'])).width(400).height(400).render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
     document.getElementById('co2_by_sector').appendChild(viewElement);
@@ -195,7 +195,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53474" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50666" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
