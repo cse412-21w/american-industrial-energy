@@ -52,8 +52,8 @@ body, html {
   .onepage-pagination li a:before{
     content: '';
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 10px;
+    height: 10px;
     background: rgba(0,0,0,0.85);
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -63,7 +63,7 @@ body, html {
   .onepage-pagination li a.active:before{
     width: 10px;
     height: 10px;
-    background: none;
+    background: rgb(85, 83, 83);
     border: 1px solid black;
     margin-top: -4px;
     left: 8px;

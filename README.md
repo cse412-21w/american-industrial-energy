@@ -2,16 +2,18 @@
 ## Team Members
 Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth
 ### Contribution Statements
-#### Isaac: Team Leader. Downloaded, wrangled, and visualized all
+#### Isaac: 
+Team Leader. Downloaded, wrangled, and visualized all
 energy data.
 
-#### Hartmut: Downloaded, wrangled, and visualized all climate change
+#### Hartmut: 
+Downloaded, wrangled, and visualized all climate change
 related data
 
 #### Janice:
 
 #### Griffin: 
-I was in charge of the HTML/CSS... Also performed data exploration on
+I was in charge of the HTML/CSS. Also performed data exploration on
 possible correlations between energy use and air quality (dropped from
 final web pages).
 
