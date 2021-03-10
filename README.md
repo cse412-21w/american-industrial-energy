@@ -8,9 +8,11 @@ energy data.
 
 #### Hartmut: 
 Downloaded, wrangled, and visualized all climate change
-related data
+related data; wrote text for web pages; contributed to narrated text
+for the video.
 
-#### Janice:
+#### Janice: Contributed to narrated text for the video; produced
+the video.
 
 #### Griffin: 
 I was in charge of the HTML/CSS. Also performed data exploration on
@@ -18,7 +20,11 @@ possible correlations between energy use and air quality (dropped from
 final web pages).
 
 ## Project Proposal Abstract
-This is the space for you to add a description for your project.
+Our project is motivated by the increasingly urgent issue of climate change.
+We take a detailed look at the production and consumption of energy
+in the American economy. We show the locations of all power plants,
+the energy sources and which sectors depend on which energy sources,
+and finally the change in energy sources over the last decade. 
 
 ## Getting Started
 
