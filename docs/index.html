@@ -1,583 +1,554 @@
-
 <!DOCTYPE HTML>
-  <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>CSE 412 Project: American Industrial Energy</title>
-        <link rel="image_src" href="https://cse412-21w.github.io/american-industrial-energy/hydro.b1103136.jpeg">
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <title>CSE 412 Project: American Industrial Energy</title>
+      <link rel="image_src" href="https://cse412-21w.github.io/american-industrial-energy/hydro.b1103136.jpeg">
+      <link rel="shortcut icon" id="favicon" href="https://cse412-21w.github.io/american-industrial-energy/earth.94098a58.jpeg"> 
+      
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Pacifico:400" rel="stylesheet" type="text/css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+      <script type="text/javascript" src="https://cse412-21w.github.io/american-industrial-energy/jquery.onepage-scroll.5437033d.js"></script>
+      <link href="https://cse412-21w.github.io/american-industrial-energy/style.c86e18f3.css" rel="stylesheet" type="text/css">
+      <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <!-- For using d3 -->
+      <script src="https://d3js.org/d3.v6.min.js"></script>
+      <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+      <!-- For using vega-lite -->
+      <script src="https://cdn.jsdelivr.net/npm/vega"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap" rel="stylesheet">
+    </head>
 
-        <link rel="shortcut icon" id="favicon" href="https://cse412-21w.github.io/american-industrial-energy/earth.94098a58.jpeg"> 
-        
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Pacifico:400" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
-        <script type="text/javascript" src="https://cse412-21w.github.io/american-industrial-energy/jquery.onepage-scroll.4f4e368d.js"></script>
-        <link href="https://cse412-21w.github.io/american-industrial-energy/style.33aeac0f.css" rel="stylesheet" type="text/css">
-        <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
-
-        <!-- For using d3 -->
-        <script src="https://d3js.org/d3.v6.min.js"></script>
-        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-        <!-- For using vega-lite -->
-        <script src="https://cdn.jsdelivr.net/npm/vega"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-        <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap" rel="stylesheet">
-      </head>
-
+<style>html {
+    height: 100%;
+  }
+  body {
+    padding: 0;
+    text-align: center;
+    font-family: 'open sans';
+    position: relative;
+    margin: 0;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
   
-  <style>html {
-      height: 100%;
-    }
-    body {
-      padding: 0;
-      text-align: center;
-      font-family: 'open sans';
-      position: relative;
-      margin: 0;
-      height: 100%;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    .wrapper {
-    	height: 100% !important;
-    	height: 100%;
-    	margin: 0 auto; 
-    	overflow: hidden;
-    }
-    
-    a {
-      text-decoration: none;
-    }
-    
-    
-    h1, h2 {
-      width: 100%;
-      float: left;
-    }
-
-    /* h1 and h1 are the default font settings. Griffin will delete later. */
-    h1 {
-      margin-top: 100px;
-      color: #000;
-      margin-bottom: 5px;
-      font-size: 70px;
-      letter-spacing: -4px;
-      font-weight: 100;
-    }
-    h1 span {
-      font-size: 26px;
-      margin: 0 5px;
-      text-transform: capitalize;
-      background: rgba(0,0,0,0.85);
-      display: inline-block;
-      color: #6D461D;
-      border-radius: 5px 5px;
-      -webkit-border-radius: 5px 5px;
-      -moz-border-radius: 5px 5px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
-      padding: 3px 10px;
-    }
-
-    .pointer {
-      color: #9b59b6;
-      font-family: 'Pacifico', cursive;
-      font-size: 30px;
-      margin-top: 15px;
-    }
-    code {
-      margin: 20px 1%;
-      float: left;
-      width: 48%;
-      height: 105px;
-      background: rgba(0,0,0,0.1);
-      border: rgba(0,0,0,0.05) 5px solid;
-      border-radius: 5px;
-      padding:5px;
-      color: white;
-      text-align: center;
-      font-size: 15px;
-      margin-top: 25px;
-      display: block;
-      box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-    }
-    code.html {
-      color: #7EC9E6;
-    }
-    code.js {
-      color: #FFAD00;
-    }
-        
-    .reload.bell {
-      font-size: 12px;
-      padding: 20px;
-      width: 45px;
-      text-align: center;
-      height: 47px;
-      border-radius: 50px;
-      -webkit-border-radius: 50px;
-      -moz-border-radius: 50px;
-    }
-    
-    .reload.bell #notification {
-      font-size: 25px;
-      line-height: 140%;
-    }
-    
-    .reload, .btn{
-      display: inline-block;
-      border: 4px solid #A2261E;
-      border-radius: 5px;
-      -moz-border-radius: 5px;
-      -webkit-border-radius: 5px;
-      background: #CC3126;
-      display: inline-block;
-      line-height: 100%;
-      padding: 0.7em;
-      text-decoration: none;
-      color: #fff;
-      width: 100px;
-      line-height: 140%;
-      font-size: 17px;
-      font-family: open sans;
-      font-weight: bold;
-    }
-    .reload:hover{
-      background: #444;
-    }
-    .btn {
-      width: 200px;
-      color: rgb(255, 255, 255);
-      border: 4px solid rgb(0, 0, 0);
-      background: rgba(3, 3, 3, 0.75);
-    }
-    .clear {
-      width: auto;
-    }
-    .btn:hover, .btn:hover {
-      background: #444;
-    }
-    .btns {
-      width: 410px;
-      margin: 50px auto;
-    }
-    .credit {
-      text-align: center;
-      color: rgba(0,0,0,0.5);
-      padding: 10px;
-      width: 410px;
-      clear: both;
-    }
-    .credit a {
-      color: rgba(0,0,0,0.85);
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-    }
-    
-    .back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      text-align: center;
-      display: block;
-      padding: 7px;
-      width: 100%;
-      box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      background: rgba(255, 255, 255, 0.25);
-      font-weight: bold;
-      font-size: 13px;
-      color: #000;
-      -webkit-transition: all 500ms ease-in-out;
-      -moz-transition: all 500ms ease-in-out;
-      -o-transition: all 500ms ease-in-out;
-      transition: all 500ms ease-in-out;
-    }
-    .back:hover {
-      color: black;
-      background: rgba(255, 255, 255, 0.5);
-    }
-
-    .main {
-      float: left;
-      width: 100%;
-      margin: 0 auto;
-    }
-    
-    .main h1 {
-      padding:150px 50px;
-      float: left;
-      width: 100%;
-      font-size: 45px;
-      box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      font-weight: 100;
-      color: white;
-      margin: 0;
-    }
-    
-    header {
-      position: relative;
-      z-index: 10;
-    }
-    .main section .page_container {
-      position: relative;
-      top: 25%;
-      margin: 0 auto 0;
-      z-index: 3;
-    }
-    .main section  {
-      overflow: hidden;
-    }
-
-    .main section > img {
-      position: absolute;
-      max-width: 100%;
-      z-index: 1;
-    }
-
-    /* .main section.page1 .page_container {
-      width: 800px;
- 
-    } */
-    .main section.page1 {
-      background: url(https://cse412-21w.github.io/american-industrial-energy/earth.94098a58.jpeg) no-repeat center;
-      background-size: cover;
+  .wrapper {
+    height: 100% !important;
+    height: 100%;
+    margin: 0 auto; 
+    overflow: hidden;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  
+  h1, h2 {
+    width: 100%;
+    float: left;
+  }
+  h1 {
+    margin-top: 100px;
+    color: #000;
+    margin-bottom: 5px;
+    font-size: 70px;
+    letter-spacing: -4px;
+    font-weight: 100;
+  }
+  h1 span {
+    font-size: 26px;
+    margin: 0 5px;
+    text-transform: capitalize;
+    background: rgba(0,0,0,0.85);
+    display: inline-block;
+    color: #6D461D;
+    border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    -moz-border-radius: 5px 5px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+    padding: 3px 10px;
+  }
+  .pointer {
+    color: #9b59b6;
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+    margin-top: 15px;
+  }
+  code {
+    margin: 20px 1%;
+    float: left;
+    width: 48%;
+    height: 105px;
+    background: rgba(0,0,0,0.1);
+    border: rgba(0,0,0,0.05) 5px solid;
+    border-radius: 5px;
+    padding:5px;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 25px;
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+  code.html {
+    color: #7EC9E6;
+  }
+  code.js {
+    color: #FFAD00;
+  }
       
-    }
-    .main section.page1 > img {
-      position: absolute;
-      text-align: center;
-    }
-
-    .main section.page1 h1 {
-      text-align: center;
-      padding: 0;
-      margin-bottom: 15px;
-      font-size: 60px;
-      color: rgb(253, 251, 251);
-    }
-    .main section.page1 h2 {
-      text-align: center;
-      padding: 0;
-      margin-bottom: 15px;
-      font-size: 24px;
-      color: rgb(253, 251, 251);
-    }
-    .main section.page1 p {
-      text-align: center;
-      padding: 0;
-      margin-bottom: 15px;
-      font-size: 12px;
-      color: rgb(253, 251, 251);
-    }
-
-    .main section.page2 {
-      background: url(https://cse412-21w.github.io/american-industrial-energy/oil.9137460d.jpeg) no-repeat center;
-      background-size: cover;
-      
-    }
-
-    .main section.page2 .page_container {
-      margin-left: 0 auto;
-      margin-right: 0 auto;
-      margin-top: -175px;
-    }
-    .main section.page2 .page_container_text {
-      margin-left:150px;
-      margin-top: 400px ;
-      padding: 5px;
-      background-color: hsla(34, 100%, 66%, 0.911);
-      width: 1200px;
-    }
-    
-    .main section.page2 h1 {
-      text-align: center;
-      padding: 0;
-      margin-bottom: 15px;
-      font-size: 40px;
-      letter-spacing: -1px;
-      color: rgb(252, 175, 10);
-    }
-
-    .main section.page2 p {
-      text-align: left;
-      /* padding: 0;
-      margin-bottom: 15px; */
-      font-size: 15px;
-      letter-spacing: -1px;
-      color: rgb(22, 21, 21);
-    }
-
-
-    .main section.page3 {
-      background:url(https://cse412-21w.github.io/american-industrial-energy/wind.75b10bd6.jpg) no-repeat;
-      background-size: cover;
-    }
-    .main section.page3 .page_container {
-      right: 250px; 
-      margin-top: -150px;
-    }
-    .main section.page3 .page_container_text {
-      margin-left:20px;
-      text-align: left;
-      margin-top: 200px ;
-      padding: 5px;
-      background-color: hsla(46, 100%, 66%, 0.568);
-      width: 1100px;
-    }
-    
-    .main section.page3 h1 {
-      text-align: center;
-      padding: 0;
-      margin-bottom: 0;
-      font-size: 40px;
-      letter-spacing: -1px;
-      color: rgb(247, 231, 9);
-    }
-
-    .main section.page3 p {
-      text-align: left;
-      font-size: 15px;
-      letter-spacing: -1px;
-      color: rgb(22, 21, 21);
-    }
-
-
-    .main section.page4 {
-      background: url(https://cse412-21w.github.io/american-industrial-energy/nuclear.5bc680ea.jpeg) no-repeat center;
-      background-size: cover;
-      
-    }
-    .main section.page4 .page_container {
-      text-align: center;
-      /* margin-bottom: 0px ; */
-      margin-top: -50px ;
-      margin-right: 700px;
-    }
-    .main section.page4 .page_container_text {
-      margin-left: 900px;
-      text-align: left;
-      margin-top: -350px ;
-      padding: 5px;
-      background-color: hsla(56, 87%, 59%, 0.733);
-      width: 400px;
-    }
-
-    .main section.page4 h1 {
-      text-align: center;
-      padding: 25px;
-      margin-bottom: 0;
-      font-size: 40px;
-      letter-spacing: -1px;
-      color: rgb(13, 14, 13);
-    }
-
-    .main section.page5 {
-      background: url(https://cse412-21w.github.io/american-industrial-energy/solar.33f833ef.jpeg) no-repeat center;
-      background-size: cover;
-      
-    }
-
-    .main section.page5 .page_container {
-      margin-top: -100px;
-      /* margin-right: 50px; */
-      margin-left: 450px;
-      background-color: hsla(0, 0%, 98%, 0.541);
-      width: 1000px;
-    }
-
-    .main section.page5 .page_container_text {
-      margin-left: 50px;
-      margin-right: 1100px;
-      margin-top: -500px;
-      /* overflow: hidden; */
-      padding: 20px;
-      text-align: left;
-      background-color: hsl(0, 0%, 98%);
-      /* width: 500px; */
-    }
-
-    .main section.page6 {
-      background: url(https://cse412-21w.github.io/american-industrial-energy/hydro.b1103136.jpeg) no-repeat center;
-      background-size: cover; 
-    }
-
-    .main section.page6 .page_container {
-      width: 900px;
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.589);
-      margin-top: -150px;
-      margin-right: 100px;
-    }
-    .main section.page6 .page_container_text {
-      margin-left: 50px;
-      margin-right: 1120px;
-      margin-top: -300px;
-      padding: 20px;
-      text-align: left;
-      background-color: hsl(209, 89%, 75%);
-    }
-    .main section.page7 {
-      background: url(https://cse412-21w.github.io/american-industrial-energy/natural_gas.ad6f5238.jpeg) no-repeat center;
-      background-size: cover; 
-    }
-    .main section.page7 .page_container {
-      width: 800px;
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.87);
-      margin-top: -150px;
-      margin-right: 30px;
-    }
-    .main section.page7 .page_container_text {
-      margin-left: 0px;
-      margin-right: 1200px;
-      margin-top: -250px;
-      padding: 20px;
-      text-align: left;
-      background-color:  hsl(27, 86%, 59%);
-    }
-/* 
-    .main section.page7 {
-      background: url(images/natural_gas.jpeg) no-repeat center ;
-      background-size: cover; 
-    }
-
-    .main section.page7 .page_container {
-      width: 800px;
-      text-align: center;
-      margin-top: -150px;
-      background-color: rgba(255, 255, 255, 0.678);
-      margin-right: 750px;
-    }
-    .main section.page7 .page_container_text {
-      margin-left: 1100px;
-      margin-right: 0px;
-      margin-top: -250px;
-      padding: 20px;
-      text-align: left;
-      background-color: hsl(27, 86%, 59%);
-    } */
-    
-    .main section.page8 {
-      background: url(https://cse412-21w.github.io/american-industrial-energy/coal.888a3661.jpg) no-repeat center;
-      background-size: cover; 
-    }
-    .main section.page8 .page_container {
-      width: 900px;
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.952);
-      margin-top: -150px;
-      margin-right: 30px;
-    }
-    .main section.page8 .page_container_text {
-      margin-left: 0px;
-      margin-right: 1300px;
-      margin-top: -400px;
-      padding: 20px;
-      text-align: left;
-      background-color: hsl(271, 86%, 71%);
-    }
-    /* .main section.page8 .page_container {
-      width: 800px;
-      text-align: center;
-      margin-top: -150px;
-      background-color: rgba(255, 255, 255, 0.952);
-      margin-right: 750px;
-    }
-    .main section.page8 .page_container_text {
-      margin-left: 1100px;
-      margin-right: 0px;
-      margin-top: -500px;
-      padding: 20px;
-      text-align: left;
-      background-color: hsl(271, 98%, 68%);
-    } */
-
-    .main section.page9 {
-      background: url(https://cse412-21w.github.io/american-industrial-energy/wind.f516c1ed.jpeg) no-repeat center;
-      background-size: cover; 
-    }
-    .main section.page9 .page_container_text {
-      margin-left: 50px;
-      margin-right: 1100px;
-      margin-top: -300px;
-      padding: 20px;
-      text-align: left;
-      background-color: hsl(209, 89%, 75%);
-    }
-    .main section.page9 .page_container {
-      width: 1000px;
-      text-align: center;
-    }
-    .footer {
-    border-top: 1px solid #ccc;
-    margin-top: 30px;
-    padding-top: 4px;
-    text-align: right;
+  .reload.bell {
     font-size: 12px;
+    padding: 20px;
+    width: 45px;
+    text-align: center;
+    height: 47px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
   }
-  .footer a {
-    color: #ddcb29;
+  
+  .reload.bell #notification {
+    font-size: 25px;
+    line-height: 140%;
   }
-  .footer a:hover {
-    color: #ce3333;
+  
+  .reload, .btn{
+    display: inline-block;
+    border: 4px solid #A2261E;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #CC3126;
+    display: inline-block;
+    line-height: 100%;
+    padding: 0.7em;
+    text-decoration: none;
+    color: #fff;
+    width: 100px;
+    line-height: 140%;
+    font-size: 17px;
+    font-family: open sans;
+    font-weight: bold;
   }
-  .todo {
-      color: #ff0000;
-      font-size: 10pt;
-  }  
-
-    body.disabled-onepage-scroll .onepage-wrapper  section {
-      min-height: 100%;
-      height: auto;
-    }
+  .reload:hover{
+    background: #444;
+  }
+  .btn {
+    width: 200px;
+    color: rgb(255, 255, 255);
+    border: 4px solid rgb(0, 0, 0);
+    background: rgba(3, 3, 3, 0.87);
+  }
+  .clear {
+    width: auto;
+  }
+  .btn:hover, .btn:hover {
+    background: rgb(109, 198, 250);
+  }
+  .btns {
+    width: 410px;
+    margin: 50px auto;
+  }
+  .credit {
+    text-align: center;
+    color: rgba(0,0,0,0.5);
+    padding: 10px;
+    width: 410px;
+    clear: both;
+  }
+  .credit a {
+    color: rgba(0,0,0,0.85);
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    display: block;
+    padding: 7px;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: bold;
+    font-size: 13px;
+    color: #000;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+  }
+  .back:hover {
+    color: black;
+    background: rgba(255, 255, 255, 0.5);
+  }
+  .main {
+    float: left;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .main h1 {
+    padding:150px 50px;
+    float: left;
+    width: 100%;
+    font-size: 45px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-weight: 100;
+    color: white;
+    margin: 0;
+  }
+  
+  header {
+    position: relative;
+    z-index: 10;
+  }
+  .main section .page_container {
+    position: relative;
+    top: 25%;
+    margin: 0 auto 0;
+    z-index: 3;
+  }
+  .main section  {
+    overflow: hidden;
+  }
+  .main section > img {
+    position: absolute;
+    max-width: 100%;
+    z-index: 1;
+  }
+  /* .main section.page1 .page_container {
+    width: 800px;
+  } */
+  .main section.page1 {
+    background: url(https://cse412-21w.github.io/american-industrial-energy/earth.94098a58.jpeg) no-repeat center;
+    background-size: cover;
     
-    body.disabled-onepage-scroll .main section .page_container, body.disabled-onepage-scroll .main section.page7 .page_container  {
-      padding: 20px;
-      margin-top: 150px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-    }
+  }
+  .main section.page1 > img {
+    position: absolute;
+    text-align: center;
+  }
+  .main section.page1 h1 {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 15px;
+    font-size: 60px;
+    color: rgb(253, 251, 251);
+  }
+  .main section.page1 h2 {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: rgb(253, 251, 251);
+  }
+  .main section.page1 p {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: rgb(253, 251, 251);
+  }
+  .main section.page2 {
+    background: url(https://cse412-21w.github.io/american-industrial-energy/oil.9137460d.jpeg) no-repeat center;
+    background-size: cover;
+  }
+  .main section.page2 .page_container {
+    /* margin-left: 0 auto;
+    margin-right: 0 auto; */
+    margin: center;
+    /* margin-top: -175px; */
+    margin-top: -10%;
+  }
+  .main section.page2 .page_container_text {
+    /* margin-left:150px;
+    margin-top: 400px ; */
+    margin-left: 10%;
+    margin-right: 10%;
+    /* margin-top added here to test everything in percent as opposed to px */
+    margin-top: 15%; 
+    padding: 5px;
+    background-color: hsla(34, 100%, 66%, 0.952);
+    /* width: 1200px; */
+  }
+  
+  .main section.page2 h1 {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 15px;
+    font-size: 40px;
+    letter-spacing: -1px;
+    color: rgb(252, 175, 10);
+  }
+  .main section.page2 p {
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: -1px;
+    color: rgb(22, 21, 21);
+  }
+  .main section.page3 {
+    background:url(https://cse412-21w.github.io/american-industrial-energy/wind.75b10bd6.jpg) no-repeat;
+    background-size: cover;
+  }
+  .main section.page3 .page_container {
+    /* right: 250px; 
+    margin-top: -150px; */
+    margin-left: 5%;
+    margin-right: 10%;
+    margin-top: -5%;
+  }
+  .main section.page3 .page_container_text {
+    /* margin-top: 200px ;
+    margin-left:20px; */
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 15%;
+    /* text-align: left; */
+    text-align: center;
+    padding: 5px;
+    background-color: hsla(46, 100%, 66%, 0.863);
+    /* width: 1100px; */
+  }
+  
+  .main section.page3 h1 {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 40px;
+    letter-spacing: -1px;
+    color: rgb(247, 231, 9);
+  }
+  .main section.page3 p {
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: -1px;
+    color: rgb(22, 21, 21);
+  }
+  
+  .main section.page4 {
+    background: url(https://cse412-21w.github.io/american-industrial-energy/nuclear.5bc680ea.jpeg) no-repeat center;
+    background-size: cover;
     
-    body.disabled-onepage-scroll  section .page_container h1{
-      text-align: center;
-      font-size: 50px;
-    }
-    body.disabled-onepage-scroll section .page_container h2, body.disabled-onepage-scroll section .page_container .credit, body.disabled-onepage-scroll section .page_container .btns{
-      text-align: center;
-      width: 100%;
-    }
-    
-    
-    body.disabled-onepage-scroll .main section > img {
-      position: relative;
-      max-width: 80%;
-      bottom: 0;
-    }
-    body.disabled-onepage-scroll code {
-      width: 95%;
-      margin: 0 auto 25px;
-      float: none;
-      overflow: hidden;
-    } 
-    
-    body.disabled-onepage-scroll .main section.page3 .page_container {
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-      right: 0;
-    }
-	  
+  }
+  .main section.page4 .page_container {
+    text-align: center;
+    /* margin-top: -50px ;
+    margin-right: 700px; */
+    margin-top: -5% ;
+    margin-right: 65%;
+  }
+  .main section.page4 .page_container_text {
+    /* margin-left: 900px;
+    margin-top: -350px; */
+    margin-left: 75%;
+    margin-top: -5%;
+    /* adding margin right to test doing spacing in percent */
+    margin-right: 5%;
+    text-align: left;
+    padding: 5px;
+    background-color: hsla(56, 87%, 59%, 0.836);
+    /* width: 400px; */
+  }
+  .main section.page4 h1 {
+    text-align: center;
+    padding: 25px;
+    margin-bottom: 0;
+    font-size: 40px;
+    letter-spacing: -1px;
+    color: rgb(13, 14, 13);
+  }
+  .main section.page5 {
+    background: url(https://cse412-21w.github.io/american-industrial-energy/solar.33f833ef.jpeg) no-repeat center;
+    background-size: cover;
+  }
+  .main section.page5 .page_container {
+    /* margin-top: -100px;
+    margin-left: 450px; */
+    margin-top: -5%;
+    margin-left: 35%;
+    /* margin right is added to test percent spacing */
+    margin-right: 2%;
+    background-color: hsla(0, 0%, 98%, 0.856);
+    /* width: 1000px; */
+  }
+  .main section.page5 .page_container_text {
+    /* margin-left: 50px;
+    margin-right: 1100px;
+    margin-top: -500px; */
+    margin-left: 5%;
+    margin-right: 70%;
+    margin-top: -20%;
+    padding: 20px;
+    text-align: left;
+    background-color: hsl(0, 0%, 98%);
+  }
+  .main section.page6 {
+    background: url(https://cse412-21w.github.io/american-industrial-energy/hydro.b1103136.jpeg) no-repeat center;
+    background-size: cover; 
+  }
+  .main section.page6 .page_container {
+    /* width: 900px; */
+    width: 60%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.945);
+    margin-top: -5%;
+    margin-right: 5%;
+    /* margin-top: -150px;
+    margin-right: 100px; */
+  }
+  .main section.page6 .page_container_text {
+    /* margin-left: 50px;
+    margin-right: 1120px;
+    margin-top: -300px; */
+    margin-left: 5%;
+    margin-right: 70%;
+    margin-top: -25%;
+    padding: 10px;
+    text-align: center;
+    background-color: hsl(209, 89%, 75%);
+  }
+  .main section.page7 {
+    background: url(https://cse412-21w.github.io/american-industrial-energy/natural_gas.35ab63b6.jpeg) no-repeat center;
+    background-size: cover; 
+  }
+  .main section.page7 .page_container {
+    /* width: 800px; */
+    width: 50%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.938);
+    margin-top: -5%;
+    margin-right: 5%;
+    /* margin-top: -150px;
+    margin-right: 30px; */
+  }
+  .main section.page7 .page_container_text {
+    margin-left: 5%;
+    margin-right: 70%;
+    margin-top: -25%;
+    padding: 20px;
+    text-align: left;
+    background-color:  hsl(27, 86%, 59%);
+  }
+  
+  .main section.page8 {
+    background: url(https://cse412-21w.github.io/american-industrial-energy/coal.888a3661.jpg) no-repeat center;
+    background-size: cover; 
+  }
+  .main section.page8 .page_container {
+    /* width: 900px; */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.966);
+    /* margin-top: -150px;
+    margin-right: 30px; */
+    margin-top: -5%;
+    margin-right: 5%;
+    /* added margin left to test sizing with percents */
+    margin-left: 50%;
+  }
+  .main section.page8 .page_container_text {
+    /* margin-left: 0px;
+    margin-right: 1300px;
+    margin-top: -400px; */
+    margin-left: 5%;
+    margin-right: 65%;
+    margin-top: -25%;
+    padding: 20px;
+    text-align: left;
+    background-color: hsl(271, 86%, 71%);
+  }
+  .main section.page9 {
+    background: url(https://cse412-21w.github.io/american-industrial-energy/wind.f516c1ed.jpeg) no-repeat center;
+    background-size: cover; 
+  }
+  .main section.page9 .page_container_text {
+    margin-left: 50px;
+    margin-right: 1100px;
+    margin-top: -300px;
+    padding: 20px;
+    text-align: left;
+    background-color: hsl(209, 89%, 75%);
+  }
+  .main section.page9 .page_container {
+    width: 1000px;
+    text-align: center;
+  }
+  .footer {
+  border-top: 1px solid #ccc;
+  margin-top: 30px;
+  padding-top: 4px;
+  text-align: right;
+  font-size: 12px;
+}
+.footer a {
+  color: #ddcb29;
+}
+.footer a:hover {
+  color: #ce3333;
+}
+.todo {
+    color: #ff0000;
+    font-size: 10pt;
+}  
+  body.disabled-onepage-scroll .onepage-wrapper  section {
+    min-height: 100%;
+    height: auto;
+  }
+  
+  body.disabled-onepage-scroll .main section .page_container, body.disabled-onepage-scroll .main section.page7 .page_container  {
+    padding: 20px;
+    margin-top: 150px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body.disabled-onepage-scroll  section .page_container h1{
+    text-align: center;
+    font-size: 50px;
+  }
+  body.disabled-onepage-scroll section .page_container h2, body.disabled-onepage-scroll section .page_container .credit, body.disabled-onepage-scroll section .page_container .btns{
+    text-align: center;
+    width: 100%;
+  }
+  
+  
+  body.disabled-onepage-scroll .main section > img {
+    position: relative;
+    max-width: 80%;
+    bottom: 0;
+  }
+  body.disabled-onepage-scroll code {
+    width: 95%;
+    margin: 0 auto 25px;
+    float: none;
+    overflow: hidden;
+  } 
+  
+  body.disabled-onepage-scroll .main section.page3 .page_container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+  }
+  
 body .one .bsa_it_ad { background: transparent; border: none; font-family: inherit; padding: 0 15px 0 10px; margin: 0; text-align: center; }
 body .one .bsa_it_ad:hover img { -moz-box-shadow: 0 0 3px #000; -webkit-box-shadow: 0 0 3px #000; box-shadow: 0 0 3px #000; }
 body .one .bsa_it_ad .bsa_it_i { display: block; padding: 0; float: none; margin: 0 0 5px; }
@@ -586,41 +557,38 @@ body .one .bsa_it_ad .bsa_it_t { padding: 6px 0; }
 body .one .bsa_it_ad .bsa_it_d { padding: 0; font-size: 12px; color: #333; }
 body .one .bsa_it_p { display: none; }
 body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; margin: 12px 15px 0; text-align: center; }
-
 @media only screen and (min-width: 320px) and (max-width: 759px) {
-  #carbonads {
-    float: none;
-    margin: 0 auto;
-    max-width: 330px;
-  }
-  #carbonads span {
-    position: relative;
-  }
-  #carbonads > span {
-    max-width: none;
-  }
-  .carbon-img {
-    float: left;
-    margin: 0;
-  }
-
-  .carbon-img img {
-    max-width: 130px !important;
-  }
-  .carbon-text {
-    float: left;
-    margin-bottom: 0;
-    padding: 8px 20px;
-    text-align: left;
-    max-width: calc(100% - 130px - 3em);
-  }
-  .carbon-poweredby {
-    left: 130px;
-    bottom: 0;
-    display: block;
-    width: 100%;
-  }}</style>
-
+#carbonads {
+  float: none;
+  margin: 0 auto;
+  max-width: 330px;
+}
+#carbonads span {
+  position: relative;
+}
+#carbonads > span {
+  max-width: none;
+}
+.carbon-img {
+  float: left;
+  margin: 0;
+}
+.carbon-img img {
+  max-width: 130px !important;
+}
+.carbon-text {
+  float: left;
+  margin-bottom: 0;
+  padding: 8px 20px;
+  text-align: left;
+  max-width: calc(100% - 130px - 3em);
+}
+.carbon-poweredby {
+  left: 130px;
+  bottom: 0;
+  display: block;
+  width: 100%;
+}}</style>
 
 <script>$(document).ready(function () {
   $(".main").onepage_scroll({
@@ -630,191 +598,181 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
   });
 });</script>
 
-
 <body>
-  <div class="wrapper"> 
-	  <div class="main">
-      <section class="page1">
-        <div class="page_container">
-          <h1> American Industrial Energy </h1>
-          <h2> By: Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth</h2>
-          <br>
-          <br>
-          <h2>https://cse412-21w.github.io/american-industrial-energy</h2>
-        </div>
-      </section>
-
-      <section class="page2">
-	      <div class="page_container">
-            
-            <div id="co2_temp"></div>
-	      </div>
-        <div class="page_container_text">
-          <h3>Carbon dioxide emissions, concentrations, and temperature</h3>
-          <p>Since the beginning of the Industrial Revolution in the mid-18th century, the
-            consumption of fossil fuels for the production of energy has steadily and nearly exponentially risen,
-            and along with it the emissions of carbon dioxide.
-            <br>
-            Future emissions will depend on international treaties, national policies,
-            and individual behavior.
-            <br>
-          </p><p>Anthropogenic emissions of carbon dioxide have
-            led to a steady rise in the atmospheric concentration of CO2 from about 278 ppm
-            before the Industrial Revolution to about 414 ppm in 2020.
-            Future concentrations depend on the emissions pathway chosen by humankind.
-            <br>
-          </p><p>Carbon dioxide is the primary greenhouse gas. Its increasing concentration has led to
-            an increase in temperatures across the globe. Future 
-            <br>
-            temperatures will depend on the emissions pathway.
-            Shown are global average temperatures in degrees Celsius
-            relative to their average between 1850 and 1900.
-            <br>
-            The goal of the Paris Agreement (2015) is to limit global warming to well below 2,
-            preferably to 1.5 degrees Celsius, compared to pre-industrial levels.
-            <br>Only the low emission path will fully meet this goal.<br>
-           <a href="http://www.climatechange2013.org/images/report/WG1AR5_AIISM_Datafiles.xlsx">
-            Source: IPCC</a>, 
+<div class="wrapper"> 
+  <div class="main">
+    <section class="page1">
+      <div class="page_container">
+        <h1> American Industrial Energy </h1>
+        <h2> By: Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth</h2>
+      </div>
+    </section>
+    <section class="page2">
+      <div class="page_container">
           
-          <a href="https://www.ncdc.noaa.gov/monitoring-references/faq/anomalies.php#anomalies">
-              NOAA/NCEI</a>
-            </p>
-        </div>
-      </section>
-<!-- NOT SHOWN IN VIDEO		    
-      <section class="page3">
-        <div class="page_container">
-          <h1>Carbon dioxide emissions by fuel type:</h1>
-          <div id="co2_by_fuel"></div>
-	      </div>
-        <div class="page_container_text">
-              <p>The amount of CO2 per energy produced depends on the type of fuel. It is given
-               here in units of pounds of CO2 emitted per million British Thermal Units (BTU).
-              <br>
-              The higher the hydrogen to carbon ratio in the fuel, the lower the CO2 emissions.
-              Coal is primarily carbon, whereas natural gas (methane, CH4) has an H:C ratio of 4.
-              Replacing coal-fired power plants with gas-fired ones cuts CO2 emissions by
-              almost 50 percent for the same amount of energy produced.
-              <br>Electricity generation from nuclear power plants and renewable energy
-              (hydroelectric, wind, solar, geothermal) does not cause CO2 emissions at the
-              time of electricity generation, but is usually associated with indirect emissions,
-              either from producing wind turbines or solar panels, or during the mining and
-              processing of uranium fuel.
-              <br>
-              Source: <a href="https://www.eia.gov/tools/faqs/faq.php?id=73&t=11">EIA</a>
-          </div>
-      </section>
-	    
-	    <section class="page4">
-        <div class="page_container">
-          
-          <div id="co2_by_sector"></div>
-	      </div>
-        <div class="page_container_text">
-          <h3>Carbon dioxide emissions by sector:</h3>
-              Electricity generation, industry, and agriculture combined are responsible for about
-              60 % of total CO2 emissions in the US (values for 2018).
-              <br>
-              Therefore, we will focus on these sectors in the following.          
-              <br>
-              Source: <a href="https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions">
-                EPA</a>
-	      </div>
-      </section>
-      
-	    <section class="page5">
-        <div class="page_container">
-          <div id = "energy_consumption_map" style="width:1000px; margin:0 auto;">
-            <iframe width="100%" height="700" frameborder="0" src="https://observablehq.com/embed/@isaack8/american-industrial-energy-handbook-data-wrangling?cells=viewof+r_color%2Cviewof+r_scale%2Ctest1"></iframe>
-          </div>
-        </div>
-        <div class="page_container_text">
-          <h3> Energy consumption by county</h3>
-          <p> The amount of energy in mmBTU's each county consumed
-            <br> in 2016. A diverging-log scale is used to highlight 
-            <br> the lowest and highest electricity consumers</p>
-        </div>
-      </section>
-NOT IN VIDEO -->
-
-	    <section class="page6">
-        <div class="page_container">
-          <iframe width="100%" height="690" frameborder="0" src="https://observablehq.com/embed/@isaack8/aie-v5?cells=viewof+source_filter%2Cchart_bubble"></iframe>
-        </div>
-        <div class="page_container_text">
-          <h3>Power plants in the U.S.</h3>
-          <p>The map shows all power plants in the United States, colored by their energy source,
-            with the size of the circles corresponding to the energy produced.
-            <br>
-            Coal-fired power plants are especially common in the traditional Rust Belt.
-            <br>
-            Wind farms are most common in all states just east of the Rocky Mountains.
-            <br>
-            Solar power is mostly produced in California, Arizona, and some other southern states.
+          <div id="co2_temp"></div>
+      </div>
+      <div class="page_container_text">
+        <h3>Carbon dioxide emissions, concentrations, and temperature</h3>
+        <p>Since the beginning of the Industrial Revolution in the mid-18th century, the
+          consumption of fossil fuels for the production of energy has steadily and nearly exponentially risen,
+          and along with it the emissions of carbon dioxide.
+          <br>
+          Future emissions will depend on international treaties, national policies,
+          and individual behavior.
+          <br>
+        </p><p>Anthropogenic emissions of carbon dioxide have
+          led to a steady rise in the atmospheric concentration of CO2 from about 278 ppm
+          before the Industrial Revolution to about 414 ppm in 2020.
+          Future concentrations depend on the emissions pathway chosen by humankind.
+          <br>
+        </p><p>Carbon dioxide is the primary greenhouse gas. Its increasing concentration has led to
+          an increase in temperatures across the globe. Future 
+          <br>
+          temperatures will depend on the emissions pathway.
+          Shown are global average temperatures in degrees Celsius
+          relative to their average between 1850 and 1900.
+          <br>
+          The goal of the Paris Agreement (2015) is to limit global warming to well below 2,
+          preferably to 1.5 degrees Celsius, compared to pre-industrial levels.
+          <br>Only the low emission path will fully meet this goal.<br>
+         <a href="http://www.climatechange2013.org/images/report/WG1AR5_AIISM_Datafiles.xlsx">
+          Source: IPCC</a>, 
+        
+        <a href="https://www.ncdc.noaa.gov/monitoring-references/faq/anomalies.php#anomalies">
+            NOAA/NCEI</a>
           </p>
-        </div>
-      </section>
-
-      <section class="page7">
-        <div class="page_container">
-          <iframe width="100%" height="734" frameborder="0" src="https://observablehq.com/embed/@isaack8/sankey-diagram-v3?cells=viewof+edgeColor%2Cchart_sankey"></iframe>
-        </div>
-        <div class="page_container_text">
-          <h3>Energy sources and users</h3>
-          <p>This chart shows the different types of energy sources on the left and the end
-            users by sector on the right.
+      </div>
+    </section>
+    <section class="page3">
+      <div class="page_container">
+        <div id="co2_by_fuel"></div>
+      </div>
+      <div class="page_container_text">
+        <h3>Carbon dioxide emissions by fuel type:</h3>
+            <p>The amount of CO2 per energy produced depends on the type of fuel. It is given
+             here in units of pounds of CO2 emitted per million British Thermal Units (BTU).
             <br>
-            Petroleum (gasoline, diesel fuel, and kerosene) is used mostly in the transportation sector,
-            but also directly in industry.
+            The higher the hydrogen to carbon ratio in the fuel, the lower the CO2 emissions.
+            Coal is primarily carbon, whereas natural gas (methane, CH4) has an H:C ratio of 4.
+            Replacing coal-fired power plants with gas-fired ones cuts CO2 emissions by
+            almost 50 percent for the same amount of energy produced.
+            <br>Electricity generation from nuclear power plants and renewable energy
+            (hydroelectric, wind, solar, geothermal) does not cause CO2 emissions at the
+            time of electricity generation, but is usually associated with indirect emissions,
+            either from producing wind turbines or solar panels, or during the mining and
+            processing of uranium fuel.
             <br>
-            Natural gas is used directly in the industrial, residential, and commercial sectors
-            as well as for generation of electricity.
-            <br>
-            All other sources are primarily used for generation of electricity.
-            <br>
-          </p>
-        </div>
-      </section>
+            Source: <a href="https://www.eia.gov/tools/faqs/faq.php?id=73&t=11">EIA</a>
+        </p></div>
+    </section>
     
-      <section class="page8">
-        <div class="page_container">
-          <iframe width="100%" height="826" frameborder="0" src="https://observablehq.com/embed/@isaack8/aie-yearly-energy-by-source-v2?cells=chart_line"></iframe>
-        </div>
-        <div class="page_container_text">
-          <h3>Changes in electricity generation over the recent decade</h3>
-          <p>From 2008 to 2019, the use of coal for the generation of electricity was cut in half,
-            whereas the use of natural gas doubled.
+    <section class="page4">
+      <div class="page_container">
+        
+        <div id="co2_by_sector"></div>
+      </div>
+      <div class="page_container_text">
+        <h3>Carbon dioxide emissions by sector:</h3>
+            Electricity generation, industry, and agriculture combined are responsible for about
+            60 % of total CO2 emissions in the US (values for 2018).
             <br>
-            Solar and wind power generation has
-            increased dramatically, but all renewable energy sources (hydroelectric, wind, solar,
-            and geothermal) still produce less electricity than coal alone.
-          </p>
+            Therefore, we will focus on these sectors in the following.          
+            <br>
+            Source: <a href="https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions">
+              EPA</a>
+      </div>
+    </section>
+    
+    <section class="page5">
+      <div class="page_container">
+        <div id="energy_consumption_map">
+          <iframe width="100%" height="700" frameborder="0" src="https://observablehq.com/embed/@isaack8/american-industrial-energy-handbook-data-wrangling?cells=viewof+r_color%2Cviewof+r_scale%2Ctest1"></iframe>
         </div>
-      </section>
+      </div>
+      <div class="page_container_text">
+        <h3> Energy consumption by county</h3>
+        <p> The amount of energy in mmBTU's each county consumed
+          <br> in 2016. A diverging-log scale is used to highlight 
+          <br> the lowest and highest electricity consumers</p>
+      </div>
+    </section>
 
-
-
-      <section class="page9">
-        <div class="page_container">
-          <div class="btns">
-  	        <a class="reload btn" href="https://courses.cs.washington.edu/courses/cse412/21wi/index.html"> UW CSE 412</a>
-  	      </div>
-          <div class="btns">
-  	        <a class="reload btn" href="https://github.com/cse412-21w/american-industrial-energy"> UW CSE 412</a>
-  	      </div>
-        </div>
-      </section>
-
-    </div>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11278966-3"></script> -->
-  <script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.6ea8539c.js"></script>
-  <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.4241f3c2.js"></script>
-  <script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.dc126fbc.js"></script>
-  <!-- <script src="pm25_coal.js"></script> -->
+    <section class="page6">
+      <div class="page_container">
+        <iframe width="100%" height="800" frameborder="0" src="https://observablehq.com/embed/@isaack8/aie-v5?cells=viewof+source_filter%2Cchart_bubble"></iframe>
+      </div>
+      <div class="page_container_text">
+        <h3>Power plants in the U.S.</h3>
+        <p>The map shows all power plants in the United States, colored by their energy source,
+          with the size of the circles corresponding to the energy produced.
+          <br>
+          Coal-fired power plants are especially common in the traditional Rust Belt.
+          <br>
+          Wind farms are most common in all states just east of the Rocky Mountains.
+          <br>
+          Solar power is mostly produced in California, Arizona, and some other southern states.
+        </p>
+      </div>
+    </section>
+    <section class="page7">
+      <div class="page_container">
+        <iframe width="100%" height="734" frameborder="0" src="https://observablehq.com/embed/@isaack8/sankey-diagram-v3?cells=viewof+edgeColor%2Cchart_sankey"></iframe>
+      </div>
+      <div class="page_container_text">
+        <h3>Energy sources and users</h3>
+        <p>This chart shows the different types of energy sources on the left and the end
+          users by sector on the right.
+          <br>
+          Petroleum (gasoline, diesel fuel, and kerosene) is used mostly in the transportation sector,
+          but also directly in industry.
+          <br>
+          Natural gas is used directly in the industrial, residential, and commercial sectors
+          as well as for generation of electricity.
+          <br>
+          All other sources are primarily used for generation of electricity.
+          <br>
+        </p>
+      </div>
+    </section>
   
+    <section class="page8">
+      <div class="page_container">
+        <iframe width="100%" height="826" frameborder="0" src="https://observablehq.com/embed/@isaack8/aie-yearly-energy-by-source-v2?cells=chart_line"></iframe>
+      </div>
+      <div class="page_container_text">
+        <h3>Changes in electricity generation over the recent decade</h3>
+        <p>From 2008 to 2019, the use of coal for the generation of electricity was cut in half,
+          whereas the use of natural gas doubled.
+          <br>
+          Solar and wind power generation has
+          increased dramatically, but all renewable energy sources (hydroelectric, wind, solar,
+          and geothermal) still produce less electricity than coal alone.
+        </p>
+      </div>
+    </section>
 
 
-  </div></body>
+    <section class="page9">
+      <div class="page_container">
+        <div class="btns">
+          <a class="reload btn" href="https://courses.cs.washington.edu/courses/cse412/21wi/index.html"> UW CSE 412</a>
+        </div>
+        <div class="btns">
+          <a class="reload btn" href="https://github.com/cse412-21w/american-industrial-energy"> Project Github</a>
+        </div>
+        <div class="btns">
+          <a class="reload btn" href="https://www.thepetedesign.com/#plugins"> CSS/HTML Source Code</a>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11278966-3"></script> -->
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.7ee8204b.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.bdc5d7f1.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.34a925f5.js"></script>
+
+</div></body>
 </html>
