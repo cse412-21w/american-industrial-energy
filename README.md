@@ -29,15 +29,15 @@ and finally the change in energy sources over the last decade.
 
 ## Picture sources in order of appearance
 
-[Earth] http://www.abudhabi2.com/uae-residents-to-observe-earth-hour-on-saturday/
-[Banff] https://i.huffpost.com/gen/4417962/images/o-BANFF-CANADA-facebook.jpg
-[Nuclear] https://e360.yale.edu/features/why-nuclear-power-must-be-part-of-the-energy-solution-environmentalists-climate
-[Windmills] https://upload.wikimedia.org/wikipedia/commons/e/e0/Wind_power_plants_in_Xinjiang%2C_China.jpg
-[Solar] http://www.businessworldghana.com/wp-content/uploads/2014/03/solar-panel.jpg
-[Hydroelectric] https://www.stimson.org/wp-content/files/hydropower.jpg
-[Natural_gas] https://i.huffpost.com/gen/593361/images/o-NATURAL-GAS-FLARE-facebook.jpg
-[Coal] https://www.usnews.com/cmsmedia/c7/61/7cdcfcff4e2b8f4377f0893b3fc5/161215-coal-stock.jpg
-[Redwoods] https://earth911.com/wp-content/uploads/2015/02/redwoods.jp
+[Earth](http://www.abudhabi2.com/uae-residents-to-observe-earth-hour-on-saturday/)
+[Banff](https://i.huffpost.com/gen/4417962/images/o-BANFF-CANADA-facebook.jpg)
+[Nuclear](https://e360.yale.edu/features/why-nuclear-power-must-be-part-of-the-energy-solution-environmentalists-climate)
+[Windmills](https://upload.wikimedia.org/wikipedia/commons/e/e0/Wind_power_plants_in_Xinjiang%2C_China.jpg)
+[Solar](http://www.businessworldghana.com/wp-content/uploads/2014/03/solar-panel.jpg)
+[Hydroelectric](https://www.stimson.org/wp-content/files/hydropower.jpg)
+[Natural_gas](https://i.huffpost.com/gen/593361/images/o-NATURAL-GAS-FLARE-facebook.jpg)
+[Coal](https://www.usnews.com/cmsmedia/c7/61/7cdcfcff4e2b8f4377f0893b3fc5/161215-coal-stock.jpg)
+[Redwoods](https://earth911.com/wp-content/uploads/2015/02/redwoods.jp)
 
 
 ## Getting Started
