@@ -36,14 +36,11 @@ d3.csv(co2TempData).then(function(data) {
 function drawLinesVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
     // your visualization goes here
-    const selection = vl.selectSingle();
     const co2vars = vl.markLine({strokeWidth:3})        
-          .select(selection)
           .encode(
               vl.x().fieldT('Year'),
               vl.y().fieldQ(vl.repeat('column')),
               vl.color().fieldN('Emissions path').sort('none'),
-              vl.opacity().if(selection).value(0.3),
               vl.tooltip('Emissions path'),
           )
           .width(300)
@@ -54,12 +51,10 @@ function drawLinesVegaLite() {
     
     const tempvar = vl.layer(
         vl.markLine({strokeWidth:3})        
-            .select(selection)
             .encode(
                 vl.x().fieldT('Year'),
                 vl.y().fieldQ(vl.repeat('column')),
                 vl.color().fieldN('Emissions path').sort('none'),
-                vl.opacity().if(selection).value(0.3),
                 vl.tooltip('Emissions path'),
             ),
         vl.markRule({stroke:'red'})
