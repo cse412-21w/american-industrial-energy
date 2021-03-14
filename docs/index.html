@@ -9,8 +9,8 @@
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Pacifico:400" rel="stylesheet" type="text/css">
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
-      <script type="text/javascript" src="https://cse412-21w.github.io/american-industrial-energy/jquery.onepage-scroll.5437033d.js"></script>
-      <link href="https://cse412-21w.github.io/american-industrial-energy/style.c86e18f3.css" rel="stylesheet" type="text/css">
+      <script type="text/javascript" src="https://cse412-21w.github.io/american-industrial-energy/jquery.onepage-scroll.4f4e368d.js"></script>
+      <link href="https://cse412-21w.github.io/american-industrial-energy/style.33aeac0f.css" rel="stylesheet" type="text/css">
       <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
       <!-- For using d3 -->
       <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -596,30 +596,27 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
         <h3>Carbon dioxide emissions, concentrations, and temperature</h3>
         <p>Since the beginning of the Industrial Revolution in the mid-18th century, the
           consumption of fossil fuels for the production of energy has steadily and nearly exponentially risen,
-          and along with it the emissions of carbon dioxide.
-          <br>
-          Future emissions will depend on international treaties, national policies,
-          and individual behavior.
-          <br>
-        </p><p>Anthropogenic emissions of carbon dioxide have
+          and along with it the emissions of carbon dioxide (CO2), which is the primary greenhouse gas.
+          <br>Anthropogenic emissions of carbon dioxide have
           led to a steady rise in the atmospheric concentration of CO2 from about 278 ppm
           before the Industrial Revolution to about 414 ppm in 2020.
-          Future concentrations depend on the emissions pathway chosen by humankind.
           <br>
-        </p><p>Carbon dioxide is the primary greenhouse gas. Its increasing concentration has led to
-          an increase in temperatures across the globe. Future 
-          <br>
-          temperatures will depend on the emissions pathway.
-          Shown are global average temperatures in degrees Celsius
+          This has led to
+          an increase in temperatures across the globe, shown here in degrees Celsius
           relative to their average between 1850 and 1900.
+        </p>
+        <p>
+          Future emissions will depend on international treaties, national policies,
+          and individual behavior.
+          Future concentrations and temperatures depend on the emissions pathway chosen by humankind.
           <br>
           The goal of the Paris Agreement (2015) is to limit global warming to well below 2,
           preferably to 1.5 degrees Celsius, compared to pre-industrial levels.
-          <br>Only the low emission path will fully meet this goal.<br>
-         <a href="http://www.climatechange2013.org/images/report/WG1AR5_AIISM_Datafiles.xlsx">
-          Source: IPCC</a>, 
-        
-        <a href="https://www.ncdc.noaa.gov/monitoring-references/faq/anomalies.php#anomalies">
+          <br>Only the low emission path will fully meet this goal.
+          <br>Source: 
+          <a href="http://www.climatechange2013.org/images/report/WG1AR5_AIISM_Datafiles.xlsx">
+          IPCC</a>, 
+          <a href="https://www.ncdc.noaa.gov/monitoring-references/faq/anomalies.php#anomalies">
             NOAA/NCEI</a>
           </p>
       </div>
@@ -648,16 +645,24 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
     </section>
     
     <section class="page4">
-      <div class="page_container">
-        
-        <div id="co2_by_sector"></div>
+      <div class="page_container" style="width: 100%; height: 584px;">
+        <div style="width: 50%; height: 584px; float: left">
+          <iframe width="100%" height="584px" frameborder="0" src="https://observablehq.com/embed/@isaack8/stacked-area-yearly-emissions?cells=chart_area">
+          </iframe>
+        </div>
+        <div style="margin-left: 50%; height: 584px">
+          <iframe width="100%" height="879" frameborder="0" src="https://observablehq.com/embed/@isaack8/epa-emissions-bar?cells=chart_bar"></iframe>
+        </div>
       </div>
       <div class="page_container_text">
-        <h3>Carbon dioxide emissions by sector:</h3>
-            Electricity generation, industry, and agriculture combined are responsible for about
+        <h3>Carbon dioxide emissions by sector:</h3>        
+        Electricity generation, industry, and agriculture combined are responsible for about
             60 % of total CO2 emissions in the US (values for 2018).
             <br>
             Therefore, we will focus on these sectors in the following.          
+            <br>
+            CO2 emissions have increased in all sectors except generation of electricity
+            (due to the shift from coal to natural gas and increasing use of renewable energy).
             <br>
             Source: <a href="https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions">
               EPA</a>
@@ -667,14 +672,19 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
     <section class="page5">
       <div class="page_container">
         <div id="energy_consumption_map">
-          <iframe width="100%" height="700" frameborder="0" src="https://observablehq.com/embed/@isaack8/american-industrial-energy-handbook-data-wrangling?cells=viewof+r_color%2Cviewof+r_scale%2Ctest1"></iframe>
+          <iframe width="100%" height="686" frameborder="0" src="https://observablehq.com/embed/@isaack8/aie-visualizations-v2?cells=viewof+r_scale%2Ctest1"></iframe>
         </div>
       </div>
       <div class="page_container_text">
         <h3> Energy consumption by county</h3>
-        <p> The amount of energy in mmBTU's each county consumed
-          <br> in 2016. A diverging-log scale is used to highlight 
-          <br> the lowest and highest electricity consumers</p>
+        <p> The maps shows the amount of energy in million BTUs each county consumed in 2016.
+          The North Slope Borough in Alaska is a center of
+          <a href="https://www.pri.org/stories/2012-11-02/energy-costs-oil-production">
+            oil production, which is a very  energy intensive process</a>.
+          <br>
+          Harris County (with Houston, TX) has a lot of refineries, which are equally high
+          consumers of energy, making it the county with the highest energy consumption in the USA.
+        </p>
       </div>
     </section>
 
@@ -692,6 +702,8 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
           Wind farms are most common in all states just east of the Rocky Mountains.
           <br>
           Solar power is mostly produced in California, Arizona, and some other southern states.
+          <br>
+          Hydroelectric power plays a large role in the Pacific Northwest.
         </p>
       </div>
     </section>
@@ -705,12 +717,15 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
           users by sector on the right.
           <br>
           Petroleum (gasoline, diesel fuel, and kerosene) is used mostly in the transportation sector,
-          but also directly in industry.
+          but also directly in industrial processes.
           <br>
           Natural gas is used directly in the industrial, residential, and commercial sectors
-          as well as for generation of electricity.
+          as well as for the generation of electricity.
           <br>
-          All other sources are primarily used for generation of electricity.
+          All other sources are primarily used for the generation of electricity. The losses are due
+          to the
+          <a href="https://en.wikipedia.org/wiki/Thermal_power_station#Thermal_power_generation_efficiency">
+          efficiency of thermal power plants of around 35 %</a>.
           <br>
         </p>
       </div>
@@ -728,6 +743,9 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
           Solar and wind power generation has
           increased dramatically, but all renewable energy sources (hydroelectric, wind, solar,
           and geothermal) still produce less electricity than coal alone.
+          <br>
+          In order to meet the low emission path, coal will have to be phased out completely
+          and the use of gasoline and natural gas has to be reduced drastically.
         </p>
       </div>
     </section>
@@ -750,9 +768,8 @@ body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; ma
   </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11278966-3"></script> -->
-<script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.7ee8204b.js"></script>
-<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.bdc5d7f1.js"></script>
-<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_sector.34a925f5.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_emit_conc_temp.58fa5bb4.js"></script>
+<script src="https://cse412-21w.github.io/american-industrial-energy/co2_by_fuel.4241f3c2.js"></script>
 
 </div></body>
 </html>

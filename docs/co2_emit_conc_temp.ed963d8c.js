@@ -161,15 +161,14 @@ d3.csv(_co2_emit_conc_temp.default).then(function (data) {
 function drawLinesVegaLite() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  var selection = vl.selectSingle();
   var co2vars = vl.markLine({
     strokeWidth: 3
-  }).select(selection).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.opacity().if(selection).value(0.3), vl.tooltip('Emissions path')).width(300).height(300).repeat({
+  }).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.tooltip('Emissions path')).width(300).height(300).repeat({
     column: ['CO2 emissions (Pg/yr)', 'CO2 concentrations (ppm)']
   });
   var tempvar = vl.layer(vl.markLine({
     strokeWidth: 3
-  }).select(selection).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.opacity().if(selection).value(0.3), vl.tooltip('Emissions path')), vl.markRule({
+  }).encode(vl.x().fieldT('Year'), vl.y().fieldQ(vl.repeat('column')), vl.color().fieldN('Emissions path').sort('none'), vl.tooltip('Emissions path')), vl.markRule({
     stroke: 'red'
   }).data([{
     'Temperature': 2.0
@@ -216,7 +215,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53232" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59600" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
