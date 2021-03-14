@@ -1,9 +1,9 @@
-# Final Project Demo
+# Final Project: American Industrial Energy
 ## Team Members
 Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth
 ### Contribution Statements
 #### Isaac: 
-Team Leader. Downloaded, wrangled, and visualized all
+Team Leader, conceived the project. Downloaded, wrangled, and visualized all
 energy data.
 
 #### Hartmut: 
@@ -22,8 +22,12 @@ final web pages).
 
 ## Project Proposal Abstract
 Our project is motivated by the increasingly urgent issue of climate change.
-We take a detailed look at the production and consumption of energy
-in the American economy. We show the locations of all power plants,
+First we show historical trends of carbon dioxide emissions and concentrations
+in the atmosphere and with global temperatures along with projections for
+the rest of the 21st century.
+Then we take a detailed look at the production and consumption of energy
+in the American economy. We show the energy use by county,
+the locations of all power plants,
 the energy sources and which sectors depend on which energy sources,
 and finally the change in energy sources over the last decade. 
 
