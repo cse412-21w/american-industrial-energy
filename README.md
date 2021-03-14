@@ -37,6 +37,7 @@ and finally the change in energy sources over the last decade.
 [Banff](https://i.huffpost.com/gen/4417962/images/o-BANFF-CANADA-facebook.jpg)
 [Nuclear](https://e360.yale.edu/features/why-nuclear-power-must-be-part-of-the-energy-solution-environmentalists-climate)
 [Windmills](https://upload.wikimedia.org/wikipedia/commons/e/e0/Wind_power_plants_in_Xinjiang%2C_China.jpg)
+[Power_lines](http://blogs.law.columbia.edu/climatechange/files/2014/09/electrical-power-lines.jpg)
 [Solar](http://www.businessworldghana.com/wp-content/uploads/2014/03/solar-panel.jpg)
 [Hydroelectric](https://www.stimson.org/wp-content/files/hydropower.jpg)
 [Natural_gas](https://i.huffpost.com/gen/593361/images/o-NATURAL-GAS-FLARE-facebook.jpg)
