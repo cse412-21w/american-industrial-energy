@@ -23,7 +23,7 @@ final web pages).
 ## Project Proposal Abstract
 Our project is motivated by the increasingly urgent issue of climate change.
 First we show historical trends of carbon dioxide emissions and concentrations
-in the atmosphere and with global temperatures along with projections for
+in the atmosphere and global temperatures along with projections for
 the rest of the 21st century.
 Then we take a detailed look at the production and consumption of energy
 in the American economy. We show the energy use by county,
