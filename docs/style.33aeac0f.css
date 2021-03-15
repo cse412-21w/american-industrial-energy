@@ -52,10 +52,9 @@ body, html {
   .onepage-pagination li a:before{
     content: '';
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: rgb(66, 66, 66);
-    border: 1px solid rgb(253, 252, 252);
+    width: 4px;
+    height: 4px;
+    background: rgba(0,0,0,0.85);
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -66,9 +65,8 @@ body, html {
     height: 10px;
     background: none;
     border: 1px solid black;
-    background: rgb(253, 252, 252);
     margin-top: -4px;
-    left: 4px;
+    left: 8px;
   }
   
   .disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
@@ -99,4 +97,4 @@ body, html {
 
 
 
-/*# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/style.6c7d14b0.css.map */
+/*# sourceMappingURL=https://cse412-21w.github.io/american-industrial-energy/style.33aeac0f.css.map */
