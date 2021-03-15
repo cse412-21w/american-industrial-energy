@@ -240,12 +240,12 @@
     font-size: 24px;
     color: rgb(253, 251, 251);
   }
-  .main section.page1 p {
-    text-align: center;
+  .main section p {
+    text-align: left;
     padding: 0;
     margin-bottom: 15px;
     font-size: 12px;
-    color: rgb(253, 251, 251);
+    color: rgb(7, 7, 7);
   }
   .main section.page2 {
     background: url(images/banff.jpg) no-repeat center ;
@@ -261,10 +261,10 @@
   .main section.page2 .page_container_text {
     /* margin-left:150px;
     margin-top: 400px ; */
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     /* margin-top added here to test everything in percent as opposed to px */
-    margin-top: 15%; 
+    margin-top: 12%; 
     padding: 5px;
     background-color: hsl(34, 27%, 69%);
     /* width: 1200px; */
@@ -285,9 +285,9 @@
   .main section.page3 .page_container_text {
     /* margin-top: 200px ;
     margin-left:20px; */
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 12%;
     /* text-align: left; */
     text-align: left;
     padding: 5px;
@@ -368,7 +368,7 @@
   .main section.page6 .page_container {
     /* margin-top: -100px;
     margin-left: 450px; */
-    margin-top: -5%;
+    margin-top: -15%;
     margin-left: 35%;
     /* margin right is added to test percent spacing */
     margin-right: 2%;
@@ -379,10 +379,10 @@
     /* margin-left: 50px;
     margin-right: 1100px;
     margin-top: -500px; */
-    margin-left: 5%;
-    margin-right: 70%;
-    margin-top: -20%;
-    padding: 20px;
+    margin-left: 3%;
+    margin-right: 68%;
+    margin-top: -30%;
+    padding:5px;
     text-align: left;
     background-color: rgb(154, 207, 243);
   }
@@ -395,7 +395,7 @@
     width: 60%;
     text-align: center;
     background-color: rgb(255, 255, 255);
-    margin-top: -5%;
+    margin-top: -15%;
     margin-right: 5%;
     /* margin-top: -150px;
     margin-right: 100px; */
@@ -404,10 +404,10 @@
     /* margin-left: 50px;
     margin-right: 1120px;
     margin-top: -300px; */
-    margin-left: 5%;
-    margin-right: 70%;
+    margin-left: 3%;
+    margin-right: 68%;
     margin-top: -25%;
-    padding: 10px;
+    padding: 5px;
     text-align: left;
     background-color: hsl(178, 88%, 83%);
   }
@@ -420,16 +420,16 @@
     width: 50%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.938);
-    margin-top: -5%;
+    margin-top: -15%;
     margin-right: 5%;
     /* margin-top: -150px;
     margin-right: 30px; */
   }
   .main section.page8 .page_container_text {
-    margin-left: 5%;
-    margin-right: 70%;
+    margin-left: 3%;
+    margin-right: 67%;
     margin-top: -25%;
-    padding: 20px;
+    padding: 5px;
     text-align: left;
     background-color:  hsl(27, 89%, 63%);
   }
@@ -444,7 +444,7 @@
     background-color: rgba(255, 255, 255, 0.966);
     /* margin-top: -150px;
     margin-right: 30px; */
-    margin-top: -10%;
+    margin-top: -20%;
     margin-right: 5%;
     /* added margin left to test sizing with percents */
     margin-left: 50%;
@@ -454,9 +454,9 @@
     margin-right: 1300px;
     margin-top: -400px; */
     margin-left: 5%;
-    margin-right: 65%;
+    margin-right: 55%;
     margin-top: -25%;
-    padding: 20px;
+    padding: 5px;
     text-align: left;
     background-color: hsl(271, 87%, 85%);
   }
@@ -596,9 +596,9 @@ $(document).ready(function(){
         <h2> By: Isaac Kretzmer, Hartmut Frenzel, Janice Kim, Griffin Reichmuth</h2>
       </div>
     </section>
+
     <section class="page2">
       <div class="page_container">
-          
           <div id="co2_temp"></div>
       </div>
       <div class="page_container_text">
@@ -606,7 +606,7 @@ $(document).ready(function(){
         <p>Since the beginning of the Industrial Revolution in the mid-18th century, the
           consumption of fossil fuels for the production of energy has steadily and nearly exponentially risen,
           and along with it the emissions of carbon dioxide (CO2), which is the primary greenhouse gas.
-          <br>Anthropogenic emissions of carbon dioxide have
+          Anthropogenic emissions of carbon dioxide have
           led to a steady rise in the atmospheric concentration of CO2 from about 278 ppm
           before the Industrial Revolution to about 414 ppm in 2020.
           <br>
@@ -630,6 +630,7 @@ $(document).ready(function(){
           </p>
       </div>
     </section>
+    
     <section class="page3">
       <div class="page_container">
         <div id="co2_by_fuel"></div>
@@ -659,12 +660,12 @@ $(document).ready(function(){
       </div>
       <div class="page_container_text">
         <h3>Carbon dioxide emissions by sector:</h3>        
-        Electricity generation, industry, and agriculture combined are responsible for about
+        <p>Electricity generation, industry, and agriculture combined are responsible for about
         60 % of total CO2 emissions in the US (values for 2018).
         Therefore, we will focus on these sectors in the following.          
         <br>
         Source: <a href="https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions">
-          EPA</a>
+          EPA</a> </p>
       </div>
     </section>
     
@@ -674,12 +675,12 @@ $(document).ready(function(){
       </div>
       <div class="page_container_text">
         <h3>Change in emissions by sector:</h3>        
-        CO2 emissions have increased in all sectors except generation of electricity
+        <p>CO2 emissions have increased in all sectors except generation of electricity
         (due to the shift from coal to natural gas and increasing use of renewable energy)
         from 2008 to 2019.
             <br>
             Source: <a href="https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions">
-              EPA</a>
+              EPA</a> </p>
       </div>
     </section>
 
@@ -721,8 +722,6 @@ $(document).ready(function(){
           Solar power is mostly produced in California, Arizona, and some other southern states.
           <br>
           Hydroelectric power plays a large role in the Pacific Northwest.
-          <br>
-          Source: <a href="https://www.eia.gov/totalenergy/data/annual/">EIA</a>
         </p>
       </div>
     </section>
